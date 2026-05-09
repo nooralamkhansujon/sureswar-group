@@ -1,6 +1,8 @@
 import { InquiryForm } from "@/components/inquiry-form";
 import { PageShell, ProseSection } from "@/components/page-shell";
 import { contact } from "@/lib/site-config";
+import Typography from "@mui/material/Typography";
+import MuiLink from "@mui/material/Link";
 
 export const metadata = {
   title: "Contact Us",
@@ -34,21 +36,29 @@ export default function ContactPage() {
         </ProseSection>
 
         <ProseSection id="details" title="Phone / Email">
-          <p>
-            <strong className="text-zinc-800 dark:text-zinc-200">Phone:</strong>{" "}
-            <a className="text-brand-700 hover:underline dark:text-brand-100" href={`tel:${contact.phoneTel}`}>
+          <Typography variant="body1">
+            <Typography component="span" sx={{ fontWeight: 600, color: "text.primary" }}>Phone:</Typography>{" "}
+            <MuiLink href={`tel:${contact.phoneTel}`} color="primary" underline="hover">
               {contact.phoneDisplay}
-            </a>
-          </p>
-          <p>
-            <strong className="text-zinc-800 dark:text-zinc-200">Email:</strong>{" "}
-            <a className="text-brand-700 hover:underline dark:text-brand-100" href={`mailto:${contact.email}`}>
+            </MuiLink>
+          </Typography>
+          <Typography variant="body1">
+            <Typography component="span" sx={{ fontWeight: 600, color: "text.primary" }}>Email:</Typography>{" "}
+            <MuiLink href={`mailto:${contact.email}`} color="primary" underline="hover">
               {contact.email}
-            </a>
-          </p>
-          <p className="text-sm text-zinc-500">
-            Update phone numbers and addresses in <code className="rounded bg-zinc-100 px-1 dark:bg-zinc-800">lib/site-config.ts</code>.
-          </p>
+            </MuiLink>
+          </Typography>
+          {/* <Typography variant="body2" color="text.disabled">
+            Update phone numbers and addresses in{" "}
+            <Typography
+              component="code"
+              variant="body2"
+              sx={{ px: 0.5, py: 0.25, borderRadius: 1, bgcolor: "action.hover", fontFamily: "monospace" }}
+            >
+              lib/site-config.ts
+            </Typography>
+            .
+          </Typography> */}
         </ProseSection>
 
         <ProseSection id="map" title="Google Map">

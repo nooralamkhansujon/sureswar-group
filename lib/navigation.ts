@@ -54,13 +54,13 @@ export const mainNav: NavEntry[] = [
     headerLabel: "SERVICES",
     children: [
       { label: "Overview", href: "/sadi-corporation" },
-      { label: "Contracting Services", href: "/sadi-corporation/contracting-services" },
-      { label: "Electrical Works", href: "/sadi-corporation/electrical-works" },
+      { label: "Contracting Services", href: "/sadi-corporation#contracting-services" },
+      { label: "Electrical Works", href: "/sadi-corporation#electrical-works" },
       {
         label: "Supply & Security Equipment",
-        href: "/sadi-corporation/supply-security-equipment",
+        href: "/sadi-corporation#supply-security-equipment",
       },
-      { label: "Contact", href: "/sadi-corporation/contact" },
+      { label: "Contact", href: "/sadi-corporation#contact" },
     ],
   },
   {
@@ -68,9 +68,9 @@ export const mainNav: NavEntry[] = [
     headerLabel: "TOURS",
     children: [
       { label: "Overview", href: "/holiday-express" },
-      { label: "Tour Packages", href: "/holiday-express/tour-packages" },
-      { label: "Visa Assistance", href: "/holiday-express/visa-assistance" },
-      { label: "Contact", href: "/holiday-express/contact" },
+      { label: "Tour Packages", href: "/holiday-express#tour-packages" },
+      { label: "Visa Assistance", href: "/holiday-express#visa-assistance" },
+      { label: "Contact", href: "/holiday-express#contact" },
     ],
   },
   { label: "News / Updates", headerLabel: "NEWS", href: "/news" },

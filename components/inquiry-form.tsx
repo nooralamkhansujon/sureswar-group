@@ -1,6 +1,12 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import Alert from "@mui/material/Alert";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Stack from "@mui/material/Stack";
+import TextField from "@mui/material/TextField";
+import SendIcon from "@mui/icons-material/Send";
 
 export function InquiryForm() {
   const [sent, setSent] = useState(false);
@@ -12,70 +18,65 @@ export function InquiryForm() {
 
   if (sent) {
     return (
-      <div
-        className="rounded-2xl border border-brand-200 bg-brand-100/40 p-6 text-sm text-brand-900 dark:border-brand-700 dark:bg-brand-700/20 dark:text-brand-50"
-        role="status"
-      >
+      <Alert severity="success" variant="outlined" sx={{ maxWidth: "xl", borderRadius: 3 }}>
         Thank you. Your inquiry has been recorded for this demo. Connect a backend or email service
         to deliver messages to your team.
-      </div>
+      </Alert>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-xl space-y-4">
-      <div>
-        <label htmlFor="inquiry-name" className="block text-sm font-medium text-zinc-800 dark:text-zinc-200">
-          Name
-        </label>
-        <input
+    <Box component="form" onSubmit={handleSubmit} sx={{ maxWidth: 560 }}>
+      <Stack spacing={3}>
+        <TextField
           id="inquiry-name"
           name="name"
+          label="Name"
           required
-          className="mt-1 w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-900 outline-none ring-brand-500 focus:ring-2 dark:border-zinc-600 dark:bg-zinc-950 dark:text-zinc-50"
+          fullWidth
+          variant="outlined"
         />
-      </div>
-      <div>
-        <label htmlFor="inquiry-email" className="block text-sm font-medium text-zinc-800 dark:text-zinc-200">
-          Email
-        </label>
-        <input
+
+        <TextField
           id="inquiry-email"
           name="email"
+          label="Email"
           type="email"
           required
-          className="mt-1 w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-900 outline-none ring-brand-500 focus:ring-2 dark:border-zinc-600 dark:bg-zinc-950 dark:text-zinc-50"
+          fullWidth
+          variant="outlined"
         />
-      </div>
-      <div>
-        <label htmlFor="inquiry-company" className="block text-sm font-medium text-zinc-800 dark:text-zinc-200">
-          Company / unit (optional)
-        </label>
-        <input
+
+        <TextField
           id="inquiry-company"
           name="company"
+          label="Company / unit (optional)"
           placeholder="e.g. Sadi Corporation, Holiday Express"
-          className="mt-1 w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-900 outline-none ring-brand-500 focus:ring-2 dark:border-zinc-600 dark:bg-zinc-950 dark:text-zinc-50"
+          fullWidth
+          variant="outlined"
         />
-      </div>
-      <div>
-        <label htmlFor="inquiry-message" className="block text-sm font-medium text-zinc-800 dark:text-zinc-200">
-          Message
-        </label>
-        <textarea
+
+        <TextField
           id="inquiry-message"
           name="message"
+          label="Message"
           required
+          fullWidth
+          multiline
           rows={5}
-          className="mt-1 w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-900 outline-none ring-brand-500 focus:ring-2 dark:border-zinc-600 dark:bg-zinc-950 dark:text-zinc-50"
+          variant="outlined"
         />
-      </div>
-      <button
-        type="submit"
-        className="inline-flex items-center justify-center rounded-full bg-brand-700 px-6 py-2.5 text-sm font-medium text-white transition hover:bg-brand-600"
-      >
-        Send inquiry
-      </button>
-    </form>
+
+        <Button
+          type="submit"
+          variant="contained"
+          size="large"
+          endIcon={<SendIcon />}
+          sx={{ alignSelf: "flex-start", borderRadius: 99, px: 4 }}
+        >
+          Send inquiry
+        </Button>
+      </Stack>
+    </Box>
   );
 }

@@ -1,4 +1,7 @@
 import type { ReactNode } from "react";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import Divider from "@mui/material/Divider";
 
 export function PageShell({
   title,
@@ -14,22 +17,45 @@ export function PageShell({
 }) {
   const inner = (
     <>
-      <header className="mb-10 max-w-3xl">
-        <h1 className="text-3xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl">
+      <Box component="header" sx={{ mb: 4, maxWidth: "48rem" }}>
+        <Typography
+          variant="h1"
+          sx={{
+            fontSize: { xs: "1.875rem", sm: "2.25rem" },
+            fontWeight: 600,
+            letterSpacing: "-0.02em",
+            color: "text.primary",
+          }}
+        >
           {title}
-        </h1>
+        </Typography>
         {subtitle ? (
-          <p className="mt-3 text-lg text-zinc-600 dark:text-zinc-400">{subtitle}</p>
+          <Typography
+            variant="subtitle1"
+            sx={{ mt: 1.5, fontSize: "1.125rem", color: "text.secondary" }}
+          >
+            {subtitle}
+          </Typography>
         ) : null}
-      </header>
+      </Box>
       {children}
     </>
   );
   if (nested) return inner;
   return (
-    <div className="mx-auto w-full max-w-6xl flex-1 px-4 pb-12 pt-24 sm:px-6 sm:pb-16 sm:pt-28">
+    <Box
+      sx={{
+        mx: "auto",
+        width: "100%",
+        maxWidth: "72rem",
+        flexGrow: 1,
+        px: { xs: 2, sm: 3 },
+        pb: { xs: 6, sm: 8 },
+        pt: { xs: 12, sm: 14 },
+      }}
+    >
       {inner}
-    </div>
+    </Box>
   );
 }
 
@@ -43,9 +69,24 @@ export function ProseSection({
   children: ReactNode;
 }) {
   return (
-    <section id={id} className="scroll-mt-24 border-t border-zinc-200 pt-10 first:border-t-0 first:pt-0 dark:border-zinc-800">
-      <h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">{title}</h2>
-      <div className="mt-4 max-w-3xl space-y-4 text-zinc-600 dark:text-zinc-400">{children}</div>
-    </section>
+    <Box
+      component="section"
+      id={id}
+      sx={{
+        scrollMarginTop: "6rem",
+        "&:not(:first-of-type)": { borderTop: "1px solid", borderColor: "divider", pt: 5 },
+        "&:first-of-type": { pt: 0 },
+      }}
+    >
+      <Typography
+        variant="h2"
+        sx={{ fontSize: "1.25rem", fontWeight: 600, color: "text.primary", mb: 2 }}
+      >
+        {title}
+      </Typography>
+      <Box sx={{ maxWidth: "48rem", "& > * + *": { mt: 2 }, color: "text.secondary" }}>
+        {children}
+      </Box>
+    </Box>
   );
 }

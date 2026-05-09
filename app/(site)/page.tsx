@@ -2,11 +2,15 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { externalUrls } from "@/lib/site-config";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import Stack from "@mui/material/Stack";
 
 export const metadata: Metadata = {
   title: "Home",
   description:
-    "Sureswar Group — diversified businesses in Bangladesh: travel, recruitment, contracting, engineering support, supply, and international services.",
+    "Sureswar Group — Trusted excellence in travel, workforce solutions, contracting, and international trade since 1993.",
 };
 
 const HERO_IMAGE =
@@ -72,25 +76,33 @@ export default function HomePage() {
 
             <div className="mt-16 flex flex-1 flex-col justify-center sm:mt-20">
               <p className="text-[11px] font-medium uppercase tracking-[0.45em] text-gold sm:text-xs">
-                — Premium corporate group —
+                — Sureswar Group —
               </p>
 
               <h1 className="mt-6 text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl lg:text-[3.25rem] lg:leading-[1.15]">
                 Sureswar Group
               </h1>
 
-              <p className="mx-auto mt-5 max-w-3xl text-base font-medium leading-snug text-white/95 sm:text-lg md:text-xl">
+              <p className="mx-auto mt-5 max-w-4xl text-base font-medium leading-snug text-white/95 sm:text-lg md:text-xl">
                 <span className="font-display italic text-gold-bright">
-                  Trusted businesses in travel, recruitment, contracting &amp; global solutions
+                  Trusted Excellence in Travel, Workforce Solutions, Contracting & International Trade
                 </span>
               </p>
 
-              <p className="mx-auto mt-8 max-w-2xl text-sm leading-relaxed text-white/85 sm:text-base">
-                Sureswar Group is a diversified business group in Bangladesh with interests in travel
-                services, manpower recruitment, contracting, engineering support, supply solutions,
-                and international business services. We are committed to professionalism, trust, and
-                long-term value creation.
-              </p>
+              <div className="mx-auto mt-8 max-w-3xl space-y-4 text-sm leading-relaxed text-white/85 sm:text-base">
+                <p>
+                  Founded in 1993, Sureswar Group has evolved into a diversified international-standard
+                  business organization with a strong presence across travel services, global manpower
+                  solutions, contracting, supply chain operations, and international trade.
+                </p>
+                <p>
+                  With more than three decades of operational excellence, the Group is built on a
+                  foundation of integrity, service quality, and long-term strategic partnerships.
+                  Today, Sureswar Group continues to expand its footprint by delivering reliable,
+                  efficient, and scalable solutions across multiple industries, serving both domestic
+                  and international markets.
+                </p>
+              </div>
 
               <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:mt-12 sm:flex-row sm:gap-6">
                 <Link
@@ -103,7 +115,7 @@ export default function HomePage() {
                   href="/contact"
                   className="inline-flex min-w-[220px] items-center justify-center rounded-full border border-white/25 bg-white/5 px-8 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition hover:border-gold/60 hover:bg-white/10"
                 >
-                  Contact Us
+                  Contact Corporate Office
                 </Link>
               </div>
             </div>
@@ -162,19 +174,45 @@ export default function HomePage() {
                   About Sureswar Group
                 </h2>
                 <h3 className="mt-4 text-3xl font-bold tracking-tight text-[#0a0a0b] sm:text-5xl lg:leading-tight">
-                  A Legacy of{" "}
-                  <span className="font-display italic font-medium">Service and Growth</span>
+                  A Multi-Sector Business Group{" "}
+                  <span className="font-display italic font-medium">Built for Global Standards</span>
                 </h3>
-                <p className="mt-8 text-lg leading-relaxed text-gray-600">
-                  With decades of business experience through our group companies, Sureswar Group
-                  continues to serve individuals, businesses, and institutions through specialized
-                  services across multiple sectors.
-                </p>
-                <p className="mt-6 text-lg leading-relaxed text-gray-600">
-                  Our focus is to deliver reliable solutions while maintaining strong customer
-                  relationships and ethical business standards.
-                </p>
-                <div className="mt-10 flex flex-wrap gap-6">
+                <div className="mt-8 space-y-6 text-lg leading-relaxed text-gray-600">
+                  <p>
+                    Sureswar Group is a diversified business conglomerate established in 1993,
+                    operating across key sectors that support global mobility, workforce development,
+                    commercial services, and international trade facilitation.
+                  </p>
+                  <p>
+                    Over the years, the Group has developed a structured portfolio of specialized
+                    business units, each focused on delivering excellence within its respective
+                    industry. Our approach combines operational expertise, market understanding, and
+                    client-centric service delivery to create sustainable value for individuals,
+                    corporations, and institutional partners.
+                  </p>
+                </div>
+
+                <div className="mt-10">
+                  <h4 className="text-xs font-bold uppercase tracking-widest text-[#0a0a0b]">
+                    Core Business Domains
+                  </h4>
+                  <ul className="mt-6 space-y-4">
+                    {[
+                      "Global Travel & Mobility Solutions",
+                      "International Manpower Recruitment & Workforce Deployment",
+                      "Civil & Electrical Contracting Services",
+                      "Import, Export & Strategic Supply Chain Operations",
+                      "Tourism, Hospitality & Holiday Experiences",
+                    ].map((domain) => (
+                      <li key={domain} className="flex items-center gap-3 text-sm font-medium text-gray-700">
+                        <span className="h-1.5 w-1.5 rounded-full bg-gold" />
+                        {domain}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="mt-12 flex flex-wrap gap-6">
                   <Link
                     href="/about"
                     className="inline-flex items-center justify-center rounded-full bg-[#0a0a0b] px-8 py-3 text-sm font-semibold text-white transition hover:bg-gold hover:text-[#0a0a0b]"
@@ -210,40 +248,93 @@ export default function HomePage() {
               Our Companies
             </h2>
             <p className="mt-4 text-3xl font-bold tracking-tight text-[#0a0a0b] sm:text-5xl">
-              Our Business Units
+              A Diversified Portfolio of Specialized Enterprises
             </p>
           </div>
           <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-12 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
             {[
               {
                 title: "Sureswar Travels",
+                subtitle: "A Legacy of Trust in Global Travel Since 1993",
                 description:
-                  "Established in 1993, providing air ticketing, Hajj & Umrah services, visa assistance, holiday packages, and travel support.",
+                  "Sureswar Travels is one of the founding pillars of Sureswar Group, with over three decades of proven expertise in delivering premium travel and pilgrimage solutions. Recognized for reliability and service consistency, the company serves individuals, families, corporate clients, and pilgrims with fully integrated travel management solutions.",
+                services: [
+                  "International & Domestic Air Ticketing",
+                  "Corporate Travel & Business Mobility Solutions",
+                  "Hajj & Umrah Travel Services",
+                  "Global Visa Assistance & Processing Support",
+                  "Luxury & Budget Holiday Packages",
+                  "Hotel Reservations & Travel Coordination",
+                  "Group Travel & Custom Tour Planning",
+                ],
+                valueProp:
+                  "Delivering seamless travel experiences through efficiency, trust, and global connectivity.",
                 href: externalUrls.sureswarTravels,
                 cta: "Visit Website",
                 external: true,
               },
               {
                 title: "Sadi Corporation",
+                subtitle: "Integrated Contracting, Procurement & Supply Solutions",
                 description:
-                  "Providing contracting, engineering support, supply solutions, import-export services, and security equipment solutions.",
-                href: "/our-companies/sadi-corporation",
+                  "Sadi Corporation operates as a strategic business unit within Sureswar Group, specializing in civil and electrical contracting, procurement solutions, import-export operations, and advanced security equipment supply. The company supports government, institutional, aviation, and private-sector projects with high-quality execution and supply reliability.",
+                services: [
+                  "Civil Construction & Infrastructure Works",
+                  "Electrical & Electro-Mechanical Contracting",
+                  "Government & Institutional Project Execution",
+                  "Import & Export Facilitation Services",
+                  "Industrial Procurement & Supply Chain Solutions",
+                  "Specialized Security Systems & X-Ray Scanning",
+                  "Access Control & Safety Equipment Solutions",
+                ],
+                valueProp:
+                  "Sadi Corporation delivers dependable project execution through technical expertise, sourcing strength, and operational discipline.",
+                href: "/sadi-corporation",
                 cta: "Learn More",
                 external: false,
               },
               {
                 title: "HiCare Services Ltd.",
+                subtitle: "Global Workforce Mobility & Talent Solutions Provider",
                 description:
-                  "Government-approved manpower recruitment and workforce solutions for overseas and local employment support.",
+                  "HiCare Services Ltd. is a government-approved international recruitment and workforce solutions company dedicated to connecting global employers with skilled, semi-skilled, and general workforce talent from Bangladesh. Operating under strict compliance standards, HiCare ensures ethical recruitment practices and efficient manpower deployment across multiple industries worldwide.",
+                services: [
+                  "International Manpower Recruitment",
+                  "Workforce Deployment & Mobilization",
+                  "Skilled & Semi-Skilled Talent Placement",
+                  "Candidate Screening & Trade Testing",
+                  "Visa Processing & Documentation Support",
+                  "Local Outsourcing & HR Solutions",
+                ],
+                industries: [
+                  "Construction & Infrastructure",
+                  "Hospitality & Service Industry",
+                  "Manufacturing & Production",
+                  "Logistics & Supply Chain",
+                  "Technical & Skilled Trades",
+                ],
+                valueProp:
+                  "Bridging opportunity and talent through structured, compliant, and efficient workforce solutions.",
                 href: externalUrls.hiCareServices,
                 cta: "Visit Website",
                 external: true,
               },
               {
                 title: "Holiday Express",
+                subtitle: "Curated Travel & Lifestyle Experiences",
                 description:
-                  "Travel support company offering air ticketing, tour packages, visa assistance, and customer travel solutions.",
-                href: "/our-companies/holiday-express",
+                  "Holiday Express is the leisure and holiday-focused travel brand of Sureswar Group, offering curated travel experiences designed for comfort, convenience, and memorable journeys.",
+                services: [
+                  "International & Domestic Holiday Packages",
+                  "Family & Group Travel Planning",
+                  "Honeymoon & Luxury Travel Experiences",
+                  "Air Ticketing & Reservation Services",
+                  "Hotel Booking & Travel Coordination",
+                  "Tourist Visa Support & Guidance",
+                ],
+                valueProp:
+                  "Delivering well-crafted travel experiences with attention to detail, affordability, and professional support.",
+                href: "/holiday-express",
                 cta: "Learn More",
                 external: false,
               },
@@ -252,10 +343,61 @@ export default function HomePage() {
                 key={company.title}
                 className="group relative flex flex-col items-start rounded-3xl bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-xl border border-gray-100"
               >
-                <h3 className="text-2xl font-bold text-[#0a0a0b] transition group-hover:text-gold">
-                  {company.title}
-                </h3>
-                <p className="mt-4 text-base leading-7 text-gray-600">{company.description}</p>
+                <div className="flex-1">
+                  <h3 className="text-2xl font-bold text-[#0a0a0b] transition group-hover:text-gold">
+                    {company.title}
+                  </h3>
+                  {"subtitle" in company && (
+                    <p className="mt-1 text-sm font-semibold text-gold/80">
+                      {company.subtitle}
+                    </p>
+                  )}
+                  <p className="mt-4 text-base leading-relaxed text-gray-600">
+                    {company.description}
+                  </p>
+
+                  {"services" in company && (
+                    <div className="mt-6">
+                      <h4 className="text-xs font-bold uppercase tracking-wider text-[#0a0a0b]">
+                        Core Services
+                      </h4>
+                      <ul className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
+                        {company.services.map((s) => (
+                          <li key={s} className="flex items-center gap-2 text-xs text-gray-500">
+                            <span className="h-1 w-1 rounded-full bg-gold" />
+                            {s}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {"industries" in company && (
+                    <div className="mt-6">
+                      <h4 className="text-xs font-bold uppercase tracking-wider text-[#0a0a0b]">
+                        Industry Coverage
+                      </h4>
+                      <div className="mt-3 flex flex-wrap gap-2">
+                        {company.industries.map((i) => (
+                          <span
+                            key={i}
+                            className="rounded-full bg-gray-100 px-3 py-1 text-[10px] font-medium text-gray-600"
+                          >
+                            {i}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {"valueProp" in company && (
+                    <div className="mt-6 border-l-2 border-gold/20 pl-4">
+                      <p className="text-sm italic text-gray-500">
+                        {company.valueProp}
+                      </p>
+                    </div>
+                  )}
+                </div>
                 <div className="mt-8">
                   {company.external ? (
                     <a
@@ -280,6 +422,205 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ── WHY CHOOSE US ── */}
+      <Box
+        component="section"
+        sx={{
+          py: { xs: 12, sm: 16 },
+          px: { xs: 3, lg: 4 },
+          bgcolor: "#0f3d3e",
+          overflow: "hidden",
+          position: "relative",
+        }}
+      >
+        {/* subtle glow blobs */}
+        <Box sx={{ position: "absolute", top: -80, left: -80, width: 360, height: 360, borderRadius: "50%", bgcolor: "#d4af3714", filter: "blur(80px)", pointerEvents: "none" }} />
+        <Box sx={{ position: "absolute", bottom: -60, right: -60, width: 280, height: 280, borderRadius: "50%", bgcolor: "#1a7a7d22", filter: "blur(60px)", pointerEvents: "none" }} />
+
+        <Box sx={{ mx: "auto", maxWidth: "72rem", position: "relative" }}>
+          {/* heading */}
+          <Box sx={{ textAlign: "center", mb: 8 }}>
+            <Typography
+              variant="overline"
+              sx={{ color: "#d4af37", letterSpacing: "0.25em", fontWeight: 600 }}
+            >
+              Why Sureswar Group
+            </Typography>
+            <Typography
+              variant="h2"
+              sx={{
+                mt: 1.5,
+                fontSize: { xs: "1.75rem", sm: "2.5rem" },
+                fontWeight: 700,
+                color: "#ffffff",
+                letterSpacing: "-0.02em",
+              }}
+            >
+              A Trusted Multi-Sector Business Platform
+            </Typography>
+          </Box>
+
+          {/* feature grid */}
+          <Box
+            sx={{
+              display: "grid",
+              gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", md: "1fr 1fr 1fr" },
+              gap: 3,
+            }}
+          >
+            {[
+              { icon: "📜", text: "Established Business Legacy Since 1993" },
+              { icon: "🏭", text: "Multi-Industry Operational Expertise" },
+              { icon: "🌐", text: "International-Standard Service Delivery" },
+              { icon: "🤝", text: "Strong Client & Partner Relationships" },
+              { icon: "⚖️", text: "Ethical & Transparent Business Practices" },
+              { icon: "📈", text: "Scalable Growth-Oriented Structure" },
+            ].map((item) => (
+              <Box
+                key={item.text}
+                sx={{
+                  display: "flex",
+                  alignItems: "flex-start",
+                  gap: 2,
+                  p: 3,
+                  borderRadius: 3,
+                  border: "1px solid rgba(255,255,255,0.08)",
+                  bgcolor: "rgba(255,255,255,0.04)",
+                  backdropFilter: "blur(8px)",
+                  transition: "all 0.2s",
+                  "&:hover": {
+                    bgcolor: "rgba(255,255,255,0.08)",
+                    borderColor: "#d4af3740",
+                    transform: "translateY(-2px)",
+                  },
+                }}
+              >
+                <Typography sx={{ fontSize: "1.5rem", lineHeight: 1, flexShrink: 0 }}>
+                  {item.icon}
+                </Typography>
+                <Typography
+                  sx={{
+                    color: "rgba(255,255,255,0.88)",
+                    fontWeight: 500,
+                    lineHeight: 1.5,
+                  }}
+                >
+                  {item.text}
+                </Typography>
+              </Box>
+            ))}
+          </Box>
+        </Box>
+      </Box>
+
+      {/* ── CORPORATE VISION ── */}
+      <Box
+        component="section"
+        sx={{
+          py: { xs: 12, sm: 16 },
+          px: { xs: 3, lg: 4 },
+          bgcolor: "#ffffff",
+          textAlign: "center",
+        }}
+      >
+        <Box sx={{ mx: "auto", maxWidth: "48rem" }}>
+          <Typography
+            variant="overline"
+            sx={{ color: "#d4af37", letterSpacing: "0.25em", fontWeight: 700 }}
+          >
+            Corporate Vision
+          </Typography>
+          <Typography
+            variant="h2"
+            sx={{
+              mt: 2,
+              fontSize: { xs: "1.75rem", sm: "2.5rem" },
+              fontWeight: 800,
+              color: "#0a0a0b",
+              lineHeight: 1.2,
+            }}
+          >
+            Driving Global Opportunities Through Integrated Solutions
+          </Typography>
+          <Typography
+            sx={{
+              mt: 4,
+              fontSize: { xs: "1rem", sm: "1.125rem" },
+              color: "text.secondary",
+              lineHeight: 1.8,
+            }}
+          >
+            Sureswar Group is committed to expanding its global footprint by strengthening existing
+            operations, enhancing service capabilities, and building sustainable partnerships across
+            international markets.
+          </Typography>
+        </Box>
+      </Box>
+
+      {/* ── CALL TO ACTION ── */}
+      <Box
+        component="section"
+        sx={{
+          py: { xs: 12, sm: 16 },
+          px: { xs: 3, lg: 4 },
+          background: "linear-gradient(135deg, #d4af37 0%, #eab308 50%, #d4af37 100%)",
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
+        {/* decorative rings */}
+        <Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 600, height: 600, borderRadius: "50%", border: "1px solid rgba(0,0,0,0.06)", pointerEvents: "none" }} />
+        <Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 900, height: 900, borderRadius: "50%", border: "1px solid rgba(0,0,0,0.04)", pointerEvents: "none" }} />
+
+        <Box sx={{ mx: "auto", maxWidth: "48rem", textAlign: "center", position: "relative" }}>
+          <Typography
+            variant="h2"
+            sx={{
+              fontSize: { xs: "1.75rem", sm: "2.5rem", md: "3rem" },
+              fontWeight: 800,
+              color: "#0a0a0b",
+              letterSpacing: "-0.02em",
+              lineHeight: 1.2,
+            }}
+          >
+            Connect With a Trusted Global Business Group
+          </Typography>
+          <Typography
+            sx={{
+              mt: 3,
+              fontSize: { xs: "1rem", sm: "1.125rem" },
+              color: "rgba(10,10,11,0.75)",
+              lineHeight: 1.7,
+              maxWidth: "40rem",
+              mx: "auto",
+            }}
+          >
+            From travel and workforce solutions to contracting and trade services, Sureswar Group
+            delivers structured, reliable, and professional solutions designed for long-term
+            success.
+          </Typography>
+          <Stack
+            direction={{ xs: "column", sm: "row" }}
+            spacing={2}
+            sx={{ mt: 5, justifyContent: "center" }}
+          >
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-full bg-[#0a0a0b] px-10 py-4 text-[0.9rem] font-bold uppercase tracking-[0.05em] text-gold shadow-lg transition hover:bg-[#0f3d3e] hover:text-white"
+            >
+              Contact Corporate Office
+            </Link>
+            <Link
+              href="/our-companies"
+              className="inline-flex items-center justify-center rounded-full border border-black/10 bg-white/10 px-10 py-4 text-[0.9rem] font-bold uppercase tracking-[0.05em] text-black shadow-sm transition hover:bg-black/5"
+            >
+              Explore Our Companies
+            </Link>
+          </Stack>
+        </Box>
+      </Box>
+
     </div>
   );
 }

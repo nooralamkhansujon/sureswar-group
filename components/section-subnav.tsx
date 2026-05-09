@@ -1,4 +1,9 @@
+"use client";
+
 import Link from "next/link";
+import Box from "@mui/material/Box";
+import { usePathname } from "next/navigation";
+import Typography from "@mui/material/Typography";
 
 export function SectionSubnav({
   baseLabel,
@@ -7,20 +12,76 @@ export function SectionSubnav({
   baseLabel: string;
   items: { href: string; label: string }[];
 }) {
+  const pathname = usePathname();
+
   return (
-    <nav
-      className="mb-10 flex flex-wrap gap-2 border-b border-zinc-200 pb-4 dark:border-zinc-800"
+    <Box
+      component="nav"
       aria-label={`${baseLabel} sections`}
+      sx={{
+        mb: 4,
+        display: "flex",
+        alignItems: "center",
+        borderBottom: "1px solid",
+        borderColor: "divider",
+        overflowX: "auto",
+        scrollbarWidth: "none",
+        "&::-webkit-scrollbar": { display: "none" },
+      }}
     >
-      {items.map((item) => (
-        <Link
-          key={item.href}
-          href={item.href}
-          className="rounded-full border border-zinc-200 bg-white px-4 py-1.5 text-sm font-medium text-zinc-700 transition-colors hover:border-brand-500 hover:text-brand-700 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-200 dark:hover:border-brand-500 dark:hover:text-brand-100"
-        >
-          {item.label}
-        </Link>
-      ))}
-    </nav>
+      {items.map((item) => {
+        const isActive = pathname === item.href;
+
+        return (
+          <Box
+            key={item.href}
+            component={Link}
+            href={item.href}
+            sx={{
+              position: "relative",
+              px: 3,
+              py: 2,
+              textDecoration: "none",
+              color: isActive ? "primary.main" : "text.secondary",
+              transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+              "&:hover": {
+                color: "primary.main",
+                "& .indicator": {
+                  width: "100%",
+                  opacity: isActive ? 1 : 0.5,
+                },
+              },
+            }}
+          >
+            <Typography
+              variant="body2"
+              sx={{
+                fontWeight: isActive ? 700 : 500,
+                fontSize: "0.875rem",
+                letterSpacing: "0.01em",
+                whiteSpace: "nowrap",
+              }}
+            >
+              {item.label}
+            </Typography>
+            
+            {/* Active Indicator */}
+            <Box
+              className="indicator"
+              sx={{
+                position: "absolute",
+                bottom: -1,
+                left: 0,
+                height: 2,
+                width: isActive ? "100%" : "0%",
+                bgcolor: "primary.main",
+                transition: "all 0.3s ease",
+                borderRadius: "2px 2px 0 0",
+              }}
+            />
+          </Box>
+        );
+      })}
+    </Box>
   );
 }
