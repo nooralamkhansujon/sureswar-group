@@ -142,8 +142,8 @@ export default function SadiCorporationPage() {
       {/* Overview Section */}
       <Box component="section" sx={{ py: { xs: 10, sm: 14 }, bgcolor: "white" }}>
         <Container maxWidth="lg">
-          <Grid container spacing={8} alignItems="center">
-            <Grid item xs={12} md={6}>
+          <Grid container spacing={8} sx={{ alignItems: "center" }}>
+            <Grid size={{ xs: 12, md: 6 }}>
               <Typography
                 variant="overline"
                 sx={{ color: "#d4af37", fontWeight: 700, letterSpacing: "0.1em" }}
@@ -181,7 +181,7 @@ export default function SadiCorporationPage() {
                 private-sector requirements.
               </Typography>
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid size={{ xs: 12, md: 6 }}>
               <Box
                 sx={{
                   position: "relative",
@@ -294,13 +294,13 @@ export default function SadiCorporationPage() {
                   },
                 }}
               >
-                <Grid container spacing={4} alignItems="center">
-                  <Grid item xs={12} md={1} sx={{ display: "flex", justifyContent: "center" }}>
+                <Grid container spacing={4} sx={{ alignItems: "center" }}>
+                  <Grid size={{ xs: 12, md: 1 }} sx={{ display: "flex", justifyContent: "center" }}>
                     <Box sx={{ bgcolor: "rgba(212, 175, 55, 0.1)", p: 2, borderRadius: "50%" }}>
                       {service.icon}
                     </Box>
                   </Grid>
-                  <Grid item xs={12} md={5}>
+                  <Grid size={{ xs: 12, md: 5 }}>
                     <Typography
                       variant="h4"
                       sx={{ fontSize: "1.75rem", fontWeight: 700, mb: 2, color: "#0a0a0b" }}
@@ -311,7 +311,7 @@ export default function SadiCorporationPage() {
                       {service.description}
                     </Typography>
                   </Grid>
-                  <Grid item xs={12} md={6}>
+                  <Grid size={{ xs: 12, md: 6 }}>
                     <Box component="ul" sx={{ p: 0, m: 0, listStyle: "none" }}>
                       {service.items.map((item, i) => (
                         <Box
@@ -414,8 +414,8 @@ export default function SadiCorporationPage() {
             are ready to deliver structured solutions for your needs.
           </Typography>
 
-          <Grid container spacing={4} justifyContent="center">
-            <Grid item xs={12} sm={6}>
+          <Grid container spacing={4} sx={{ justifyContent: "center" }}>
+            <Grid size={{ xs: 12, sm: 6 }}>
               <Box
                 sx={{
                   p: 4,
@@ -453,7 +453,7 @@ export default function SadiCorporationPage() {
                 </Stack>
               </Box>
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid size={{ xs: 12, sm: 6 }}>
               <Box
                 sx={{
                   p: 4,
