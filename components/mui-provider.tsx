@@ -1,6 +1,7 @@
 "use client";
 
 import { createTheme, ThemeProvider, CssBaseline } from "@mui/material";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v16-appRouter";
 import { useMemo } from "react";
 
 const brand = {
@@ -103,10 +104,12 @@ export function MuiProvider({ children }: { children: React.ReactNode }) {
   );
 
   return (
-    <ThemeProvider theme={theme}>
-      {/* disableGutters prevents CssBaseline from touching body margin/padding */}
-      <CssBaseline />
-      {children}
-    </ThemeProvider>
+    <AppRouterCacheProvider>
+      <ThemeProvider theme={theme}>
+        {/* disableGutters prevents CssBaseline from touching body margin/padding */}
+        <CssBaseline />
+        {children}
+      </ThemeProvider>
+    </AppRouterCacheProvider>
   );
 }

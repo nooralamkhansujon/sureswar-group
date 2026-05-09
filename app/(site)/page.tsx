@@ -378,7 +378,7 @@ export default function HomePage() {
                         Industry Coverage
                       </h4>
                       <div className="mt-3 flex flex-wrap gap-2">
-                        {company.industries.map((i) => (
+                        {Array.isArray(company?.industries) && company.industries.map((i) => (
                           <span
                             key={i}
                             className="rounded-full bg-gray-100 px-3 py-1 text-[10px] font-medium text-gray-600"

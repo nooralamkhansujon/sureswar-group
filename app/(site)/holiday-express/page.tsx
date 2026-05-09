@@ -76,7 +76,7 @@ const PACKAGES = [
     price: "৳10,800",
     tags: ["Nature", "Relax"],
     image:
-      "https://images.unsplash.com/photo-1590001158193-780d0cd2d32b?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1762395146044-edf5314d331e?auto=format&fit=crop&w=800&q=80",
   },
   {
     name: "Bali Tropical Paradise",
@@ -232,8 +232,8 @@ export default function HolidayExpressPage() {
       {/* Intro Section */}
       <Box component="section" sx={{ py: { xs: 10, sm: 14 }, bgcolor: "white" }}>
         <Container maxWidth="lg">
-          <Grid container spacing={8} alignItems="center">
-            <Grid item xs={12} md={6}>
+          <Grid container spacing={8} sx={{ alignItems: "center" }}>
+            <Grid size={{ xs: 12, md: 6 }}>
               <Typography
                 variant="overline"
                 sx={{ color: "#1a7a7d", fontWeight: 700, letterSpacing: "0.1em" }}
@@ -270,7 +270,7 @@ export default function HolidayExpressPage() {
                 global network.
               </Typography>
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid size={{ xs: 12, md: 6 }}>
               <Box sx={{ position: "relative" }}>
                 <Box
                   component="img"
@@ -334,7 +334,7 @@ export default function HolidayExpressPage() {
 
           <Grid container spacing={4}>
             {PACKAGES.map((pkg, idx) => (
-              <Grid item xs={12} sm={6} md={6} lg={4} xl={3} key={idx}>
+              <Grid size={{ xs: 12, sm: 6, md: 6, lg: 4, xl: 4 }} key={idx}>
                 <Card
                   sx={{
                     height: "100%",
@@ -364,7 +364,14 @@ export default function HolidayExpressPage() {
                       }}
                     />
                   </Box>
-                  <CardContent sx={{ p: 3, flexGrow: 1 }}>
+                  <CardContent
+                    sx={{
+                      p: 3,
+                      flexGrow: 1,
+                      display: "flex",
+                      flexDirection: "column",
+                    }}
+                  >
                     <Typography variant="h6" sx={{ fontWeight: 700, mb: 1, color: "#0a0a0b" }}>
                       {pkg.name}
                     </Typography>
@@ -382,7 +389,7 @@ export default function HolidayExpressPage() {
                         </Typography>
                       </Box>
                     </Stack>
-                    <Stack direction="row" spacing={1} sx={{ mb: 3 }}>
+                    <Stack direction="row" spacing={1} sx={{ mb: 3, flexWrap: "wrap", gap: 1 }}>
                       {pkg.tags.map((tag) => (
                         <Chip
                           key={tag}
@@ -393,30 +400,40 @@ export default function HolidayExpressPage() {
                         />
                       ))}
                     </Stack>
-                    <Divider sx={{ mb: 2 }} />
-                    <Box
-                      sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}
-                    >
-                      <Box>
-                        <Typography variant="caption" sx={{ color: "text.secondary", display: "block" }}>
-                          Starting from
-                        </Typography>
-                        <Typography variant="h6" sx={{ fontWeight: 800, color: "#1a7a7d" }}>
-                          {pkg.price}
-                        </Typography>
-                      </Box>
-                      <Button
-                        variant="contained"
+                    <Box sx={{ mt: "auto" }}>
+                      <Divider sx={{ mb: 2 }} />
+                      <Box
                         sx={{
-                          bgcolor: "#0a0a0b",
-                          borderRadius: "100px",
-                          textTransform: "none",
-                          fontWeight: 700,
-                          "&:hover": { bgcolor: "#1a7a7d" },
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                          gap: 2,
                         }}
                       >
-                        Book Now
-                      </Button>
+                        <Box>
+                          <Typography
+                            variant="caption"
+                            sx={{ color: "text.secondary", display: "block" }}
+                          >
+                            Starting from
+                          </Typography>
+                          <Typography variant="h6" sx={{ fontWeight: 800, color: "#1a7a7d" }}>
+                            {pkg.price}
+                          </Typography>
+                        </Box>
+                        <Button
+                          variant="contained"
+                          sx={{
+                            bgcolor: "#0a0a0b",
+                            borderRadius: "100px",
+                            textTransform: "none",
+                            fontWeight: 700,
+                            "&:hover": { bgcolor: "#1a7a7d" },
+                          }}
+                        >
+                          Book Now
+                        </Button>
+                      </Box>
                     </Box>
                   </CardContent>
                 </Card>
@@ -433,8 +450,8 @@ export default function HolidayExpressPage() {
         sx={{ py: { xs: 10, sm: 14 }, bgcolor: "white" }}
       >
         <Container maxWidth="lg">
-          <Grid container spacing={8} alignItems="center">
-            <Grid item xs={12} md={6}>
+          <Grid container spacing={8} sx={{ alignItems: "center" }}>
+            <Grid size={{ xs: 12, md: 6 }}>
               <Box sx={{ position: "relative" }}>
                 <Box
                   component="img"
@@ -444,7 +461,7 @@ export default function HolidayExpressPage() {
                 />
               </Box>
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid size={{ xs: 12, md: 6 }}>
               <Typography
                 variant="overline"
                 sx={{ color: "#1a7a7d", fontWeight: 700, letterSpacing: "0.1em" }}
@@ -515,8 +532,8 @@ export default function HolidayExpressPage() {
             planning.
           </Typography>
 
-          <Grid container spacing={4} justifyContent="center">
-            <Grid item xs={12} sm={6}>
+          <Grid container spacing={4} sx={{ justifyContent: "center" }}>
+            <Grid size={{ xs: 12, sm: 6 }}>
               <Box
                 sx={{
                   p: 4,
@@ -550,7 +567,7 @@ export default function HolidayExpressPage() {
                 </Stack>
               </Box>
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid size={{ xs: 12, sm: 6 }}>
               <Box
                 sx={{
                   p: 4,
