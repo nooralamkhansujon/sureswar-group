@@ -26,9 +26,9 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import PhoneIcon from "@mui/icons-material/Phone";
 import NorthEastIcon from "@mui/icons-material/NorthEast";
-import FlightTakeoffIcon from "@mui/icons-material/FlightTakeoff";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
+import { BrandMark } from "@/components/brand-mark";
 import { contact } from "@/lib/site-config";
 import { isBranch, mainNav, type NavBranch, type NavEntry, type NavLeaf } from "@/lib/navigation";
 
@@ -87,37 +87,6 @@ function navButtonSx(active: boolean) {
     },
     "&:hover::after": { width: "calc(100% - 28px)" },
   } as const;
-}
-
-function BrandMark() {
-  return (
-    <Box
-      aria-hidden
-      sx={{
-        width: 36,
-        height: 36,
-        borderRadius: "50%",
-        display: "inline-flex",
-        alignItems: "center",
-        justifyContent: "center",
-        background: GOLD_GRADIENT,
-        color: COLORS.surface,
-        boxShadow: "0 4px 14px rgba(212,175,55,0.35), inset 0 1px 0 rgba(255,255,255,0.4)",
-        flexShrink: 0,
-        position: "relative",
-        "&::after": {
-          content: '""',
-          position: "absolute",
-          inset: 0,
-          borderRadius: "50%",
-          border: "1px solid rgba(255,255,255,0.25)",
-          pointerEvents: "none",
-        },
-      }}
-    >
-      <FlightTakeoffIcon sx={{ fontSize: 18 }} />
-    </Box>
-  );
 }
 
 function DesktopLeaf({ item }: { item: NavLeaf }) {
@@ -574,22 +543,22 @@ export function SiteHeader() {
                     paintOrder: "stroke fill",
                   }}
                 >
-                  TRAVELS
+                  GROUP
                 </Typography>
               </Box>
-              <Typography
-                component="span"
-                sx={{
-                  display: { xs: "none", sm: "block" },
-                  fontSize: 9,
-                  fontWeight: 600,
-                  letterSpacing: "0.32em",
-                  color: COLORS.gold,
-                  mt: 0.25,
-                }}
-              >
-                SURESWAR GROUP
-              </Typography>
+              {/*<Typography*/}
+              {/*  component="span"*/}
+              {/*  sx={{*/}
+              {/*    display: { xs: "none", sm: "block" },*/}
+              {/*    fontSize: 9,*/}
+              {/*    fontWeight: 600,*/}
+              {/*    letterSpacing: "0.32em",*/}
+              {/*    color: COLORS.gold,*/}
+              {/*    mt: 0.25,*/}
+              {/*  }}*/}
+              {/*>*/}
+              {/*  SURESWAR GROUP*/}
+              {/*</Typography>*/}
             </Box>
           </Box>
 

@@ -1,0 +1,7 @@
+{"timestamp":"00:00:00.655","source":"Server","level":"LOG","message":""}
+{"timestamp":"00:00:14.534","source":"Server","level":"LOG","message":"○ Compiling / ..."}
+{"timestamp":"00:03:31.401","source":"Browser","level":"WARN","message":"Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior=\"smooth\"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior"}
+{"timestamp":"00:03:31.479","source":"Server","level":"WARN","message":"[browser] \"\\u001b[33mDetected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior=\\\"smooth\\\"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior\\u001b[39m\""}
+{"timestamp":"00:03:31.479","source":"Browser","level":"WARN","message":"\u001b[33mDetected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior=\"smooth\"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior\u001b[39m"}
+{"timestamp":"00:55:21.749","source":"Server","level":"LOG","message":"✓ Compiled in 75ms"}
+{"timestamp":"00:55:38.533","source":"Server","level":"LOG","message":"✓ Compiled in 48ms"}

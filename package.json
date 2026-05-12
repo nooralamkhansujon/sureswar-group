@@ -3,10 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
+    "dev": "yarn dev:sureswar-group",
+    "dev:sureswar-group": "next dev apps/sureswar-group",
+    "dev:hi-cares": "next dev apps/hi-cares -p 3001",
+    "build": "yarn build:sureswar-group",
+    "build:sureswar-group": "next build apps/sureswar-group",
+    "build:hi-cares": "next build apps/hi-cares",
+    "lint": "eslint apps/sureswar-group apps/hi-cares",
+    "lint:sureswar-group": "eslint apps/sureswar-group",
+    "lint:hi-cares": "eslint apps/hi-cares"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -14,6 +19,7 @@
     "@mui/icons-material": "^9.0.1",
     "@mui/material": "^9.0.1",
     "@mui/material-nextjs": "^9.0.1",
+
     "next": "16.2.4",
     "react": "19.2.4",
     "react-dom": "19.2.4"
