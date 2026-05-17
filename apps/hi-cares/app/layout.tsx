@@ -1,20 +1,18 @@
 import type { Metadata } from "next";
-import { DM_Sans, Syne } from "next/font/google";
+import { Geist, Playfair_Display } from "next/font/google";
 
 import { SiteNavbar } from "@/components/site-navbar";
 import "./globals.css";
 
-const syne = Syne({
-  variable: "--font-syne",
+const geistSans = Geist({
+  variable: "--font-geist-sans",
   subsets: ["latin"],
-  weight: ["400", "600", "700", "800"],
 });
 
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
   subsets: ["latin"],
-  weight: ["300", "400", "500"],
-  style: ["normal", "italic"],
+  style: ["italic", "normal"],
 });
 
 export const metadata: Metadata = {
@@ -32,8 +30,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${syne.variable} ${dmSans.variable} h-full`}>
-      <body className="min-h-full antialiased">
+    <html lang="en" className={`${geistSans.variable} ${playfair.variable} h-full antialiased`}>
+      <body className="min-h-full">
         <div className="license-strip" role="note">
           Government-approved manpower recruiting agency · License RL-2234 · Ministry of Expatriates&apos; Welfare &amp;
           Overseas Employment · BAIRA member

@@ -1,7 +1,6 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-
 import { navSections } from "@/lib/navigation";
 
 /** Native anchors avoid Next.js `Link` normalizing hash hrefs (SSR vs client mismatch). */

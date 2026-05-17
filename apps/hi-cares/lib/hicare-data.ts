@@ -24,6 +24,11 @@ export const visionStatement =
 export const chairmanMessage = {
   name: "Ashraf Khan",
   title: "Chairman",
+  image: "/assets/chairman.jpg",
+  imageWidth: 640,
+  imageHeight: 800,
+  imageFit: "contain" as const,
+  imageAlt: "Ashraf Khan, Chairman of HiCare Services Ltd.",
   intro:
     "Dear esteemed partners and associates, greetings from HiCare Services Ltd. It brings me great pleasure to introduce HiCare Services Ltd., a trustworthy and dependable name in the field of overseas employment for manpower and human resources. Our company operates a highly efficient network throughout Bangladesh and is fully equipped to recruit personnel who meet the requirements of our esteemed overseas employers.",
   body: [
@@ -35,6 +40,12 @@ export const chairmanMessage = {
 export const mdMessage = {
   name: "S. N. Manzur Murshed (Mahbub)",
   title: "Managing Director",
+  image: "/assets/managing-director.jpeg",
+  imageWidth: 640,
+  imageHeight: 800,
+  imageFit: "contain" as const,
+  imageObjectPosition: "center 18%",
+  imageAlt: "S. N. Manzur Murshed (Mahbub), Managing Director of HiCare Services Ltd.",
   intro:
     "Dear valued partners and associates, greetings from HiCare Services Ltd. I am pleased to introduce our agency as a modern, efficient, and leading overseas recruiting agency in Bangladesh. Our unwavering commitment to high-quality, professional services has earned us reliability, trustworthiness, and global appreciation.",
   body: [

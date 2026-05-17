@@ -40,23 +40,50 @@ function MessageCard({
   title,
   intro,
   body,
+  image,
+  imageAlt,
+  imageWidth,
+  imageHeight,
+  imageFit = "cover",
+  imageObjectPosition,
 }: {
   name: string;
   title: string;
   intro: string;
   body: string[];
+  image: string;
+  imageAlt: string;
+  imageWidth: number;
+  imageHeight: number;
+  imageFit?: "cover" | "contain";
+  imageObjectPosition?: string;
 }) {
   return (
-    <article className="message-card" style={{ maxWidth: 760, marginTop: 28 }}>
-      <h3>{name}</h3>
-      <p className="role">{title}</p>
-      <p>{intro}</p>
-      {body.map((para, i) => (
-        <p key={i}>{para}</p>
-      ))}
-      <p className="sign-off">
-        — {name}, {title}
-      </p>
+    <article className="message-card">
+      <figure
+        className={`message-card-photo${imageFit === "contain" ? " message-card-photo--contain" : ""}`}
+      >
+        <img
+          src={image}
+          alt={imageAlt}
+          width={imageWidth}
+          height={imageHeight}
+          loading="lazy"
+          decoding="async"
+          style={imageObjectPosition ? { objectPosition: imageObjectPosition } : undefined}
+        />
+      </figure>
+      <div className="message-card-body">
+        <h3>{name}</h3>
+        <p className="role">{title}</p>
+        <p>{intro}</p>
+        {body.map((para, i) => (
+          <p key={i}>{para}</p>
+        ))}
+        <p className="sign-off">
+          — {name}, {title}
+        </p>
+      </div>
     </article>
   );
 }
@@ -111,27 +138,50 @@ export default function HomePage() {
           <blockquote className="vision-quote-main">{visionStatement}</blockquote>
         </section>
 
-        <section id="message-chairman" className="hicare-section message-section">
-          <span className="section-label">Chairman</span>
-          <h2 className="section-title">
-            Message from the <span>Chairman</span>
+        <section className="hicare-section message-section" aria-labelledby="leadership-heading">
+          <span className="section-label">Leadership</span>
+          <h2 id="leadership-heading" className="section-title">
+            Messages from our <span>leaders</span>
           </h2>
-          <p className="section-desc">Ashraf Khan on HiCare&apos;s network, values, and commitment to overseas partners.</p>
-          <MessageCard
-            name={chairmanMessage.name}
-            title={chairmanMessage.title}
-            intro={chairmanMessage.intro}
-            body={chairmanMessage.body}
-          />
-        </section>
-
-        <section id="message-md" className="hicare-section message-section">
-          <span className="section-label">Managing Director</span>
-          <h2 className="section-title">
-            Message from the <span>Managing Director</span>
-          </h2>
-          <p className="section-desc">S. N. Manzur Murshed (Mahbub) on capability, markets, and how we work with employers.</p>
-          <MessageCard name={mdMessage.name} title={mdMessage.title} intro={mdMessage.intro} body={mdMessage.body} />
+          <p className="section-desc">
+            Ashraf Khan and S. N. Manzur Murshed (Mahbub) on HiCare&apos;s values, capability, and commitment to overseas
+            partners.
+          </p>
+          <div className="messages-grid">
+            <div id="message-chairman" className="message-column">
+              <h3 className="message-column-title">
+                Message from the <span>Chairman</span>
+              </h3>
+              <MessageCard
+                name={chairmanMessage.name}
+                title={chairmanMessage.title}
+                intro={chairmanMessage.intro}
+                body={chairmanMessage.body}
+                image={chairmanMessage.image}
+                imageAlt={chairmanMessage.imageAlt}
+                imageWidth={chairmanMessage.imageWidth}
+                imageHeight={chairmanMessage.imageHeight}
+                imageFit={chairmanMessage.imageFit}
+              />
+            </div>
+            <div id="message-md" className="message-column">
+              <h3 className="message-column-title">
+                Message from the <span>Managing Director</span>
+              </h3>
+              <MessageCard
+                name={mdMessage.name}
+                title={mdMessage.title}
+                intro={mdMessage.intro}
+                body={mdMessage.body}
+                image={mdMessage.image}
+                imageAlt={mdMessage.imageAlt}
+                imageWidth={mdMessage.imageWidth}
+                imageHeight={mdMessage.imageHeight}
+                imageFit={mdMessage.imageFit}
+                imageObjectPosition={mdMessage.imageObjectPosition}
+              />
+            </div>
+          </div>
         </section>
 
         <section id="overview" className="hicare-section overview">
@@ -365,13 +415,13 @@ export default function HomePage() {
               {p}
             </p>
           ))}
-          <h3 style={{ marginTop: 28, fontSize: 18, color: "var(--blue)", fontFamily: "var(--font-syne), Syne, sans-serif" }}>
+          <h3 style={{ marginTop: 28, fontSize: 18, color: "var(--blue)" }}>
             Understanding employer needs
           </h3>
           <p className="section-desc" style={{ marginTop: 12 }}>
             {understandingEmployerNeeds}
           </p>
-          <h3 style={{ marginTop: 36, fontSize: 18, color: "var(--magenta)", fontFamily: "var(--font-syne), Syne, sans-serif" }}>
+          <h3 style={{ marginTop: 36, fontSize: 18, color: "var(--magenta)" }}>
             Employer documentation
           </h3>
           <div className="employer-grid">
