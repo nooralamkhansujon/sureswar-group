@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 10, "column": 0}, "map": {"version":3,"sources":["file:///home/soft-bd-noor/demolink/sureswar_group/apps/hi-cares/app/page.tsx"],"sourcesContent":["export default function HomePage() {\n  return (\n    <div className=\"min-h-screen bg-slate-50\">\n      <main className=\"mx-auto flex max-w-7xl flex-col items-center justify-center px-4 py-24 text-center sm:px-6 sm:py-32 lg:px-8\">\n        <h1 className=\"mb-6 text-4xl font-extrabold tracking-tight text-slate-900 md:text-5xl\">\n          Welcome to{\" \"}\n          <span className=\"bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text text-transparent\">Hi Cares</span>\n        </h1>\n        <p className=\"max-w-2xl text-lg text-slate-500 sm:text-xl\">\n          Explore our contents from the navigation menu above.\n        </p>\n      </main>\n    </div>\n  );\n}\n"],"names":["HomePage","className"],"mappings":";;;;;;AAAe,SAASA;IACtB,qBACE,8OAAC;QAAIC,WAAU;kBACb,cAAA,8OAAC;YAAKA,WAAU;;8BACd,8OAAC;oBAAGA,WAAU;;wBAAyE;wBAC1E;sCACX,8OAAC;4BAAKA,WAAU;sCAA2E;;;;;;;;;;;;8BAE7F,8OAAC;oBAAEA,WAAU;8BAA8C;;;;;;;;;;;;;;;;;AAMnE"}}]
-}
