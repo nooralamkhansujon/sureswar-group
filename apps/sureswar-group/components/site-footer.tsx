@@ -74,12 +74,12 @@ export function SiteFooter() {
                       paintOrder: "stroke fill",
                     }}
                   >
-                    TRAVELS
+                    GROUP
                   </span>
                 </span>
-                <span className="mt-1 block text-[9px] font-semibold tracking-[0.32em] text-gold">
+                {/* <span className="mt-1 block text-[9px] font-semibold tracking-[0.32em] text-gold">
                   SURESWAR GROUP
-                </span>
+                </span> */}
                 <p className="mt-3 text-sm leading-relaxed text-zinc-500">
                   A diversified business group committed to quality, integrity, and long-term
                   partnerships.

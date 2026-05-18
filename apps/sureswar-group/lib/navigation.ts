@@ -2,7 +2,6 @@ import { externalUrls } from "./site-config";
 
 export type NavLeaf = {
   label: string;
-  /** Shorter label for the top bar (e.g. uppercase “ABOUT”). */
   headerLabel?: string;
   href: string;
   external?: boolean;
@@ -25,11 +24,7 @@ export const mainNav: NavEntry[] = [
   {
     label: "About Sureswar Group",
     headerLabel: "ABOUT",
-    children: [
-      { label: "Our Vision", href: "/about#our-vision" },
-      { label: "Leadership", href: "/about#leadership" },
-      { label: "Business Values", href: "/about#business-values" },
-    ],
+    href: "/about"
   },
   {
     label: "Our Companies",
@@ -66,22 +61,13 @@ export const mainNav: NavEntry[] = [
   {
     label: "Holiday Express",
     headerLabel: "TOURS",
-    children: [
-      { label: "Overview", href: "/holiday-express" },
-      { label: "Tour Packages", href: "/holiday-express#tour-packages" },
-      { label: "Visa Assistance", href: "/holiday-express#visa-assistance" },
-      { label: "Contact", href: "/holiday-express#contact" },
-    ],
+    href: "/holiday-express"
   },
   { label: "News / Updates", headerLabel: "NEWS", href: "/news" },
   {
     label: "Contact Us",
     headerLabel: "CONTACT",
-    children: [
-      { label: "Inquiry Form", href: "/contact#inquiry" },
-      { label: "Phone / Email", href: "/contact#details" },
-      { label: "Google Map", href: "/contact#map" },
-    ],
+    href: "/contact"
   },
 ];
 

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Link from "next/link";
-import { externalUrls } from "@/lib/site-config";
+import { externalUrls, BRANDING } from "@/lib/site-config";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
@@ -107,7 +107,7 @@ export default function HomePage() {
               <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:mt-12 sm:flex-row sm:gap-6">
                 <Link
                   href="/our-companies"
-                  className="inline-flex min-w-[220px] items-center justify-center rounded-full bg-gold px-8 py-3.5 text-sm font-semibold text-[#0a0a0b] shadow-lg shadow-black/30 transition hover:bg-gold-bright"
+                  className="inline-flex min-w-[220px] items-center justify-center rounded-full bg-gold px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-black/30 transition hover:bg-gold-bright"
                 >
                   Explore Our Companies
                 </Link>
@@ -215,7 +215,7 @@ export default function HomePage() {
                 <div className="mt-12 flex flex-wrap gap-6">
                   <Link
                     href="/about"
-                    className="inline-flex items-center justify-center rounded-full bg-[#0a0a0b] px-8 py-3 text-sm font-semibold text-white transition hover:bg-gold hover:text-[#0a0a0b]"
+                    className="inline-flex items-center justify-center rounded-full bg-[#0a0a0b] px-8 py-3 text-sm font-semibold text-white transition hover:bg-gold hover:text-white"
                   >
                     Our History
                   </Link>
@@ -435,7 +435,7 @@ export default function HomePage() {
         }}
       >
         {/* subtle glow blobs */}
-        <Box sx={{ position: "absolute", top: -80, left: -80, width: 360, height: 360, borderRadius: "50%", bgcolor: "#d4af3714", filter: "blur(80px)", pointerEvents: "none" }} />
+        <Box sx={{ position: "absolute", top: -80, left: -80, width: 360, height: 360, borderRadius: "50%", bgcolor: BRANDING.glowLight, filter: "blur(80px)", pointerEvents: "none" }} />
         <Box sx={{ position: "absolute", bottom: -60, right: -60, width: 280, height: 280, borderRadius: "50%", bgcolor: "#1a7a7d22", filter: "blur(60px)", pointerEvents: "none" }} />
 
         <Box sx={{ mx: "auto", maxWidth: "72rem", position: "relative" }}>
@@ -443,7 +443,7 @@ export default function HomePage() {
           <Box sx={{ textAlign: "center", mb: 8 }}>
             <Typography
               variant="overline"
-              sx={{ color: "#d4af37", letterSpacing: "0.25em", fontWeight: 600 }}
+              sx={{ color: BRANDING.primary, letterSpacing: "0.25em", fontWeight: 600 }}
             >
               Why Sureswar Group
             </Typography>
@@ -491,7 +491,7 @@ export default function HomePage() {
                   transition: "all 0.2s",
                   "&:hover": {
                     bgcolor: "rgba(255,255,255,0.08)",
-                    borderColor: "#d4af3740",
+                    borderColor: BRANDING.hoverBorder,
                     transform: "translateY(-2px)",
                   },
                 }}
@@ -527,7 +527,7 @@ export default function HomePage() {
         <Box sx={{ mx: "auto", maxWidth: "48rem" }}>
           <Typography
             variant="overline"
-            sx={{ color: "#d4af37", letterSpacing: "0.25em", fontWeight: 700 }}
+            sx={{ color: BRANDING.primary, letterSpacing: "0.25em", fontWeight: 700 }}
           >
             Corporate Vision
           </Typography>
@@ -564,14 +564,14 @@ export default function HomePage() {
         sx={{
           py: { xs: 12, sm: 16 },
           px: { xs: 3, lg: 4 },
-          background: "linear-gradient(135deg, #d4af37 0%, #eab308 50%, #d4af37 100%)",
+          background: BRANDING.gradient,
           position: "relative",
           overflow: "hidden",
         }}
       >
         {/* decorative rings */}
-        <Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 600, height: 600, borderRadius: "50%", border: "1px solid rgba(0,0,0,0.06)", pointerEvents: "none" }} />
-        <Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 900, height: 900, borderRadius: "50%", border: "1px solid rgba(0,0,0,0.04)", pointerEvents: "none" }} />
+        <Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 600, height: 600, borderRadius: "50%", border: "1px solid rgba(255,255,255,0.08)", pointerEvents: "none" }} />
+        <Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 900, height: 900, borderRadius: "50%", border: "1px solid rgba(255,255,255,0.04)", pointerEvents: "none" }} />
 
         <Box sx={{ mx: "auto", maxWidth: "48rem", textAlign: "center", position: "relative" }}>
           <Typography
@@ -579,7 +579,7 @@ export default function HomePage() {
             sx={{
               fontSize: { xs: "1.75rem", sm: "2.5rem", md: "3rem" },
               fontWeight: 800,
-              color: "#0a0a0b",
+              color: "#ffffff",
               letterSpacing: "-0.02em",
               lineHeight: 1.2,
             }}
@@ -590,7 +590,7 @@ export default function HomePage() {
             sx={{
               mt: 3,
               fontSize: { xs: "1rem", sm: "1.125rem" },
-              color: "rgba(10,10,11,0.75)",
+              color: "rgba(255,255,255,0.85)",
               lineHeight: 1.7,
               maxWidth: "40rem",
               mx: "auto",
@@ -607,13 +607,13 @@ export default function HomePage() {
           >
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center rounded-full bg-[#0a0a0b] px-10 py-4 text-[0.9rem] font-bold uppercase tracking-[0.05em] text-gold shadow-lg transition hover:bg-[#0f3d3e] hover:text-white"
+              className="inline-flex items-center justify-center rounded-full bg-white px-10 py-4 text-[0.9rem] font-bold uppercase tracking-[0.05em] text-gold shadow-lg transition hover:bg-zinc-100"
             >
               Contact Corporate Office
             </Link>
             <Link
               href="/our-companies"
-              className="inline-flex items-center justify-center rounded-full border border-black/10 bg-white/10 px-10 py-4 text-[0.9rem] font-bold uppercase tracking-[0.05em] text-black shadow-sm transition hover:bg-black/5"
+              className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-10 py-4 text-[0.9rem] font-bold uppercase tracking-[0.05em] text-white shadow-sm transition hover:bg-white/20"
             >
               Explore Our Companies
             </Link>

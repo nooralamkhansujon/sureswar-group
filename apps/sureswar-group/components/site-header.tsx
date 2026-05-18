@@ -29,18 +29,14 @@ import NorthEastIcon from "@mui/icons-material/NorthEast";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
 import { BrandMark } from "@/components/brand-mark";
-import { contact } from "@/lib/site-config";
+import { contact, BRANDING } from "@/lib/site-config";
 import { isBranch, mainNav, type NavBranch, type NavEntry, type NavLeaf } from "@/lib/navigation";
 
 const COLORS = {
-  gold: "#d4af37",
-  goldBright: "#f0c956",
   coral: "#e94335",
   surface: "#0a0a0b",
   surface2: "#141416",
 } as const;
-
-const GOLD_GRADIENT = `linear-gradient(135deg, ${COLORS.goldBright} 0%, ${COLORS.gold} 60%, #b8901e 100%)`;
 const CORAL_GRADIENT = `linear-gradient(135deg, ${COLORS.coral} 0%, #c5331f 100%)`;
 
 function topLabel(entry: NavEntry): string {
@@ -59,10 +55,11 @@ function isActiveBranch(branch: NavBranch, pathname: string): boolean {
 }
 
 /** Shared sx for the animated-underline desktop nav button. */
+
 function navButtonSx(active: boolean) {
   return {
     position: "relative",
-    color: active ? COLORS.gold : "rgba(255,255,255,0.85)",
+    color: active ? BRANDING.primary : "#000",
     fontSize: 13,
     fontWeight: 600,
     letterSpacing: "0.04em",
@@ -72,7 +69,7 @@ function navButtonSx(active: boolean) {
     minWidth: 0,
     borderRadius: 1,
     transition: "color 200ms ease",
-    "&:hover": { color: "#fff", backgroundColor: "transparent" },
+    "&:hover": { color: BRANDING.primary, backgroundColor: "transparent" },
     "&::after": {
       content: '""',
       position: "absolute",
@@ -80,7 +77,7 @@ function navButtonSx(active: boolean) {
       bottom: 6,
       height: "2px",
       width: active ? "calc(100% - 28px)" : "0%",
-      background: GOLD_GRADIENT,
+      background: BRANDING.gradientHeader,
       borderRadius: 2,
       transform: "translateX(-50%)",
       transition: "width 240ms cubic-bezier(.4,0,.2,1)",
@@ -151,11 +148,11 @@ function DesktopDropdown({ branch }: { branch: NavBranch }) {
             sx: {
               mt: 1.25,
               minWidth: 260,
-              bgcolor: COLORS.surface2,
-              color: "#fff",
-              border: "1px solid rgba(255,255,255,0.08)",
+              bgcolor: "#fff",
+              color: "#000",
+              border: "1px solid rgba(0,0,0,0.08)",
               boxShadow:
-                "0 20px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(212,175,55,0.06), inset 0 1px 0 rgba(255,255,255,0.04)",
+                "0 10px 30px rgba(0,0,0,0.08)",
               borderRadius: 2,
               py: 0.75,
               overflow: "hidden",
@@ -166,7 +163,7 @@ function DesktopDropdown({ branch }: { branch: NavBranch }) {
                 left: 0,
                 right: 0,
                 height: "2px",
-                background: GOLD_GRADIENT,
+                background: BRANDING.gradientHeader,
               },
             },
           },
@@ -182,7 +179,7 @@ function DesktopDropdown({ branch }: { branch: NavBranch }) {
             py: 1.25,
             pl: 2.5,
             pr: 2,
-            color: childActive ? COLORS.gold : "rgba(255,255,255,0.88)",
+            color: childActive ? BRANDING.primary : "rgba(0,0,0,0.88)",
             transition: "color 180ms, background-color 180ms, padding-left 220ms",
             "&::before": {
               content: '""',
@@ -191,13 +188,13 @@ function DesktopDropdown({ branch }: { branch: NavBranch }) {
               top: "20%",
               bottom: "20%",
               width: childActive ? 3 : 0,
-              background: GOLD_GRADIENT,
+              background: BRANDING.gradientHeader,
               borderRadius: "0 3px 3px 0",
               transition: "width 200ms ease",
             },
             "&:hover": {
-              backgroundColor: "rgba(212,175,55,0.08)",
-              color: "#fff",
+              backgroundColor: BRANDING.hoverBg,
+              color: BRANDING.primary,
               pl: 3,
             },
             "&:hover::before": { width: 3 },
@@ -215,7 +212,7 @@ function DesktopDropdown({ branch }: { branch: NavBranch }) {
               >
                 <span>{child.label}</span>
                 <NorthEastIcon
-                  sx={{ ml: "auto", fontSize: 14, color: "rgba(255,255,255,0.45)" }}
+                  sx={{ ml: "auto", fontSize: 14, color: "rgba(0,0,0,0.45)" }}
                 />
               </MenuItem>
             );
@@ -265,7 +262,7 @@ function MobileBranchItem({
             top: "25%",
             bottom: "25%",
             width: branchActive ? 3 : 0,
-            background: GOLD_GRADIENT,
+            background: BRANDING.gradientHeader,
             borderRadius: "0 3px 3px 0",
           },
         }}
@@ -278,19 +275,19 @@ function MobileBranchItem({
                 fontSize: 14,
                 fontWeight: 700,
                 letterSpacing: "0.02em",
-                color: branchActive ? COLORS.gold : "rgba(255,255,255,0.95)",
+                color: branchActive ? BRANDING.primary : "#000",
               },
             },
           }}
         />
         {open ? (
-          <ExpandLessIcon sx={{ color: COLORS.gold }} />
+          <ExpandLessIcon sx={{ color: BRANDING.primary }} />
         ) : (
-          <ExpandMoreIcon sx={{ color: "rgba(255,255,255,0.55)" }} />
+          <ExpandMoreIcon sx={{ color: "rgba(0,0,0,0.54)" }} />
         )}
       </ListItemButton>
       <Collapse in={open} timeout={250} unmountOnExit>
-        <Box sx={{ bgcolor: "rgba(255,255,255,0.02)" }}>
+        <Box sx={{ bgcolor: "rgba(0,0,0,0.02)" }}>
           <List component="div" disablePadding>
             {branch.children.map((child) => {
               const active = isActiveLeaf(child, pathname);
@@ -306,14 +303,14 @@ function MobileBranchItem({
                   top: "50%",
                   width: 8,
                   height: 1,
-                  background: active ? COLORS.gold : "rgba(255,255,255,0.25)",
+                  background: active ? BRANDING.gradientHeader : "rgba(0,0,0,0.15)",
                   transform: "translateY(-50%)",
                 },
               };
               const textSx = {
                 fontSize: 13,
                 fontWeight: 500,
-                color: active ? COLORS.gold : "rgba(255,255,255,0.78)",
+                color: active ? BRANDING.primary : "rgba(0,0,0,0.7)",
               };
               if (child.external) {
                 return (
@@ -327,7 +324,7 @@ function MobileBranchItem({
                     sx={itemSx}
                   >
                     <ListItemText primary={child.label} slotProps={{ primary: { sx: textSx } }} />
-                    <NorthEastIcon sx={{ fontSize: 14, color: "rgba(255,255,255,0.45)" }} />
+                    <NorthEastIcon sx={{ fontSize: 14, color: "rgba(0,0,0,0.45)" }} />
                   </ListItemButton>
                 );
               }
@@ -341,7 +338,7 @@ function MobileBranchItem({
                 >
                   <ListItemText primary={child.label} slotProps={{ primary: { sx: textSx } }} />
                   <ChevronRightIcon
-                    sx={{ fontSize: 14, color: active ? COLORS.gold : "rgba(255,255,255,0.35)" }}
+                    sx={{ fontSize: 14, color: active ? BRANDING.primary : "rgba(0,0,0,0.35)" }}
                   />
                 </ListItemButton>
               );
@@ -349,7 +346,7 @@ function MobileBranchItem({
           </List>
         </Box>
       </Collapse>
-      <Divider sx={{ borderColor: "rgba(255,255,255,0.06)" }} />
+      <Divider sx={{ borderColor: "rgba(0,0,0,0.06)" }} />
     </>
   );
 }
@@ -377,7 +374,7 @@ function MobileLeafItem({
       top: "25%",
       bottom: "25%",
       width: active ? 3 : 0,
-      background: GOLD_GRADIENT,
+      background: BRANDING.gradientHeader,
       borderRadius: "0 3px 3px 0",
     },
   };
@@ -385,7 +382,7 @@ function MobileLeafItem({
     fontSize: 14,
     fontWeight: 700,
     letterSpacing: "0.02em",
-    color: active ? COLORS.gold : "rgba(255,255,255,0.95)",
+    color: active ? BRANDING.primary : "#000",
   };
   if (item.external) {
     return (
@@ -399,9 +396,9 @@ function MobileLeafItem({
           sx={baseSx}
         >
           <ListItemText primary={label} slotProps={{ primary: { sx: primarySx } }} />
-          <NorthEastIcon sx={{ fontSize: 14, color: "rgba(255,255,255,0.45)" }} />
+          <NorthEastIcon sx={{ fontSize: 14, color: "rgba(0,0,0,0.45)" }} />
         </ListItemButton>
-        <Divider sx={{ borderColor: "rgba(255,255,255,0.06)" }} />
+        <Divider sx={{ borderColor: "rgba(0,0,0,0.06)" }} />
       </>
     );
   }
@@ -410,10 +407,10 @@ function MobileLeafItem({
       <ListItemButton component={Link} href={item.href} onClick={onNavigate} sx={baseSx}>
         <ListItemText primary={label} slotProps={{ primary: { sx: primarySx } }} />
         <ChevronRightIcon
-          sx={{ fontSize: 16, color: active ? COLORS.gold : "rgba(255,255,255,0.35)" }}
+          sx={{ fontSize: 16, color: active ? BRANDING.primary : "rgba(0,0,0,0.35)" }}
         />
       </ListItemButton>
-      <Divider sx={{ borderColor: "rgba(255,255,255,0.06)" }} />
+      <Divider sx={{ borderColor: "rgba(0,0,0,0.06)" }} />
     </>
   );
 }
@@ -441,23 +438,18 @@ export function SiteHeader() {
   useEffect(() => {
     setMenuOpen(false);
   }, [pathname]);
-
   const transparent = isHome && !scrolled;
 
   const appBarSx = useMemo(
     () => ({
-      bgcolor: transparent ? "transparent" : "rgba(10,10,11,0.85)",
-      color: "#fff",
-      backdropFilter: transparent ? "none" : "blur(14px) saturate(140%)",
-      WebkitBackdropFilter: transparent ? "none" : "blur(14px) saturate(140%)",
-      borderBottom: transparent ? "1px solid transparent" : "1px solid rgba(255,255,255,0.06)",
-      boxShadow: transparent
-        ? "none"
-        : "0 8px 28px rgba(0,0,0,0.45), inset 0 -1px 0 rgba(212,175,55,0.06)",
-      transition:
-        "background-color 300ms ease, border-color 300ms ease, box-shadow 300ms ease, backdrop-filter 300ms ease",
+      bgcolor: "#fff",
+      color: "#000", // Black text on white background
+      // Retain subtle border and shadow for depth
+      borderBottom: "1px solid rgba(0,0,0,0.06)",
+      boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+      transition: "background-color 300ms ease, color 300ms ease",
     }),
-    [transparent],
+    [],
   );
 
   return (
@@ -468,7 +460,7 @@ export function SiteHeader() {
           sx={{
             height: "2px",
             width: "100%",
-            background: GOLD_GRADIENT,
+            background: BRANDING.gradientHeader,
             opacity: transparent ? 0 : 0.85,
             transition: "opacity 300ms",
           }}
@@ -603,7 +595,7 @@ export function SiteHeader() {
                     transition: "background-color 200ms",
                   }}
                 >
-                  <PhoneIcon sx={{ fontSize: 14, color: COLORS.gold }} />
+                  <PhoneIcon sx={{ fontSize: 14, color: BRANDING.primary }} />
                 </Box>
               }
               sx={{
@@ -616,7 +608,7 @@ export function SiteHeader() {
                 "&:hover": {
                   color: "#fff",
                   bgcolor: "transparent",
-                  "& .MuiButton-startIcon > div": { bgcolor: "rgba(212,175,55,0.22)" },
+                  "& .MuiButton-startIcon > div": { bgcolor: BRANDING.hoverBorder },
                 },
               }}
             >
@@ -627,8 +619,8 @@ export function SiteHeader() {
               href="/contact"
               endIcon={<NorthEastIcon sx={{ fontSize: 16 }} />}
               sx={{
-                color: COLORS.surface,
-                background: GOLD_GRADIENT,
+                color: "#fff",
+                background: BRANDING.gradientHeader,
                 borderRadius: 999,
                 px: 2.75,
                 py: 0.85,
@@ -637,13 +629,13 @@ export function SiteHeader() {
                 letterSpacing: "0.12em",
                 textTransform: "uppercase",
                 boxShadow:
-                  "0 4px 14px rgba(212,175,55,0.35), inset 0 1px 0 rgba(255,255,255,0.4)",
+                  `0 4px 14px ${BRANDING.glow}, inset 0 1px 0 rgba(255,255,255,0.4)`,
                 transition: "transform 200ms ease, box-shadow 200ms ease, filter 200ms ease",
                 "&:hover": {
                   transform: "translateY(-2px)",
                   filter: "brightness(1.05)",
                   boxShadow:
-                    "0 8px 22px rgba(212,175,55,0.5), inset 0 1px 0 rgba(255,255,255,0.5)",
+                    `0 8px 22px ${BRANDING.primary}80, inset 0 1px 0 rgba(255,255,255,0.5)`,
                 },
               }}
             >
@@ -658,14 +650,14 @@ export function SiteHeader() {
             aria-controls="mobile-nav-drawer"
             aria-expanded={menuOpen}
             sx={{
-              color: "#fff",
+              color: "#000",
               display: { xs: "inline-flex", lg: "none" },
               ml: "auto",
-              border: "1px solid rgba(255,255,255,0.15)",
+              border: "1px solid rgba(0,0,0,0.15)",
               borderRadius: 1.5,
               p: 1,
               transition: "all 200ms",
-              "&:hover": { borderColor: COLORS.gold, color: COLORS.gold },
+              "&:hover": { borderColor: BRANDING.primary, color: BRANDING.primary },
             }}
           >
             <MenuIcon />
@@ -683,17 +675,17 @@ export function SiteHeader() {
             sx: {
               width: { xs: "88vw", sm: 380 },
               maxWidth: 420,
-              bgcolor: COLORS.surface,
+              bgcolor: "#fff",
               backgroundImage:
-                "radial-gradient(circle at top right, rgba(212,175,55,0.08), transparent 50%)",
-              color: "#fff",
-              borderLeft: "1px solid rgba(212,175,55,0.15)",
+                "radial-gradient(circle at top right, rgba(212,175,55,0.04), transparent 50%)",
+              color: "#000",
+              borderLeft: "1px solid rgba(0,0,0,0.08)",
             },
           },
         }}
       >
         {/* Top gold accent line */}
-        <Box sx={{ height: "2px", background: GOLD_GRADIENT }} />
+        <Box sx={{ height: "2px", background: BRANDING.gradientHeader }} />
 
         <Box
           sx={{
@@ -702,7 +694,7 @@ export function SiteHeader() {
             justifyContent: "space-between",
             px: 2.5,
             py: 2,
-            borderBottom: "1px solid rgba(255,255,255,0.08)",
+            borderBottom: "1px solid rgba(0,0,0,0.08)",
           }}
         >
           <Box sx={{ display: "inline-flex", alignItems: "center", gap: 1.25 }}>
@@ -712,7 +704,7 @@ export function SiteHeader() {
                 <Box component="span" sx={{ color: COLORS.coral }}>
                   SURESWAR
                 </Box>{" "}
-                <Box component="span" sx={{ color: "#fff" }}>
+                <Box component="span" sx={{ color: "#000" }}>
                   TRAVELS
                 </Box>
               </Typography>
@@ -721,7 +713,7 @@ export function SiteHeader() {
                   fontSize: 9,
                   fontWeight: 600,
                   letterSpacing: "0.32em",
-                  color: COLORS.gold,
+                  color: BRANDING.primary,
                   mt: 0.25,
                 }}
               >
@@ -733,18 +725,18 @@ export function SiteHeader() {
             onClick={closeMenu}
             aria-label="Close menu"
             sx={{
-              color: "#fff",
-              border: "1px solid rgba(255,255,255,0.12)",
+              color: "#000",
+              border: "1px solid rgba(0,0,0,0.12)",
               borderRadius: 1.5,
               p: 0.75,
-              "&:hover": { borderColor: COLORS.gold, color: COLORS.gold },
+              "&:hover": { borderColor: BRANDING.primary, color: BRANDING.primary },
             }}
           >
             <CloseIcon fontSize="small" />
           </IconButton>
         </Box>
 
-        <Box sx={{ px: 2.5, py: 2.5, borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+        <Box sx={{ px: 2.5, py: 2.5, borderBottom: "1px solid rgba(0,0,0,0.08)" }}>
           <Button
             href={`tel:${contact.phoneTel}`}
             startIcon={
@@ -756,16 +748,16 @@ export function SiteHeader() {
                   display: "inline-flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  bgcolor: "rgba(212,175,55,0.15)",
+                  bgcolor: BRANDING.transparentBg,
                 }}
               >
-                <PhoneIcon sx={{ fontSize: 16, color: COLORS.gold }} />
+                <PhoneIcon sx={{ fontSize: 16, color: BRANDING.primary }} />
               </Box>
             }
             onClick={closeMenu}
             sx={{
               width: "100%",
-              color: "rgba(255,255,255,0.95)",
+              color: "rgba(0,0,0,0.85)",
               textTransform: "none",
               justifyContent: "flex-start",
               fontSize: 14,
@@ -776,10 +768,10 @@ export function SiteHeader() {
             }}
           >
             <Box>
-              <Box component="span" sx={{ display: "block", fontSize: 10, color: "rgba(255,255,255,0.5)", letterSpacing: "0.12em", textTransform: "uppercase" }}>
+              <Box component="span" sx={{ display: "block", fontSize: 10, color: "rgba(0,0,0,0.5)", letterSpacing: "0.12em", textTransform: "uppercase" }}>
                 Talk to us
               </Box>
-              <Box component="span" sx={{ display: "block", fontSize: 14 }}>
+              <Box component="span" sx={{ display: "block", fontSize: 14, color: "#000" }}>
                 {contact.phoneDisplay}
               </Box>
             </Box>
@@ -792,15 +784,15 @@ export function SiteHeader() {
             fullWidth
             sx={{
               mt: 2,
-              color: COLORS.surface,
-              background: GOLD_GRADIENT,
+              color: "#fff",
+              background: BRANDING.gradientHeader,
               borderRadius: 999,
               py: 1.4,
               fontSize: 12,
               fontWeight: 800,
               letterSpacing: "0.18em",
               textTransform: "uppercase",
-              boxShadow: "0 4px 14px rgba(212,175,55,0.35), inset 0 1px 0 rgba(255,255,255,0.4)",
+              boxShadow: `0 4px 14px ${BRANDING.glow}`,
               "&:hover": { filter: "brightness(1.05)" },
             }}
           >
@@ -816,7 +808,7 @@ export function SiteHeader() {
             fontSize: 10,
             fontWeight: 700,
             letterSpacing: "0.24em",
-            color: "rgba(255,255,255,0.45)",
+            color: "rgba(0,0,0,0.45)",
             textTransform: "uppercase",
           }}
         >
@@ -824,7 +816,7 @@ export function SiteHeader() {
         </Typography>
 
         <List component="nav" aria-label="Mobile" sx={{ py: 0 }}>
-          <Divider sx={{ borderColor: "rgba(255,255,255,0.06)" }} />
+          <Divider sx={{ borderColor: "rgba(0,0,0,0.06)" }} />
           {mainNav.map((entry) =>
             isBranch(entry) ? (
               <MobileBranchItem

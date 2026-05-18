@@ -1,4 +1,5 @@
 import { PageShell } from "@/components/page-shell";
+import { BRANDING } from "@/lib/site-config";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
@@ -54,8 +55,8 @@ export default function AboutPage() {
                   height: "100%",
                   minHeight: 300,
                   borderRadius: 4,
-                  bgcolor: "rgba(212, 175, 55, 0.05)",
-                  border: "1px solid rgba(212, 175, 55, 0.2)",
+                  bgcolor: BRANDING.transparentBg,
+                  border: `1px solid ${BRANDING.transparentBorder}`,
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "center",
@@ -63,7 +64,7 @@ export default function AboutPage() {
                   textAlign: "center",
                 }}
               >
-                <Typography variant="h2" sx={{ color: "gold", fontWeight: 900, mb: 1 }}>
+                <Typography variant="h2" sx={{ color: BRANDING.primary, fontWeight: 900, mb: 1 }}>
                   30+
                 </Typography>
                 <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
@@ -91,22 +92,22 @@ export default function AboutPage() {
           >
             {[
               {
-                icon: <VerifiedUserIcon sx={{ color: "gold" }} />,
+                icon: <VerifiedUserIcon sx={{ color: BRANDING.primary }} />,
                 title: "Integrity",
                 desc: "We maintain absolute transparency and honesty in every interaction. We say what we do and do what we say.",
               },
               {
-                icon: <SecurityIcon sx={{ color: "gold" }} />,
+                icon: <SecurityIcon sx={{ color: BRANDING.primary }} />,
                 title: "Safety & Compliance",
                 desc: "Committed to the highest safety standards across contracting, electrical works, and international trade.",
               },
               {
-                icon: <FavoriteIcon sx={{ color: "gold" }} />,
+                icon: <FavoriteIcon sx={{ color: BRANDING.primary }} />,
                 title: "Respect for People",
                 desc: "We value our customers, partners, and colleagues, fostering an environment of mutual respect and growth.",
               },
               {
-                icon: <TrendingUpIcon sx={{ color: "gold" }} />,
+                icon: <TrendingUpIcon sx={{ color: BRANDING.primary }} />,
                 title: "Continuous Improvement",
                 desc: "Constantly refining our processes and service quality to stay ahead of industry standards and client needs.",
               },

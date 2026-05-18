@@ -2,10 +2,11 @@
 
 :root {
   --background: #f4f4f5;
-  --foreground: #171717;
-  --gold: #d4af37;
-  --gold-bright: #eab308;
+  --foreground: #f4f4f5;
+  --gold: #6A1B75;
+  --gold-bright: #6A1B75;
   --coral: #e94335;
+  /* --deep-purple: #6A1B75; */
 }
 
 @theme inline {
@@ -17,8 +18,8 @@
   --color-brand-600: #155f61;
   --color-brand-500: #1a7a7d;
   --color-brand-100: #e6f4f4;
-  --color-gold: #d4af37;
-  --color-gold-bright: #eab308;
+  --color-gold: #6A1B75;
+  --color-gold-bright: #6A1B75;
   --color-coral: #e94335;
 }
 
