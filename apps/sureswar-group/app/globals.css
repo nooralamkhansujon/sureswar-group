@@ -3,8 +3,10 @@
 :root {
   --background: #f4f4f5;
   --foreground: #f4f4f5;
-  --gold: #6A1B75;
-  --gold-bright: #6A1B75;
+  --gold: #d4af37;
+  --gold-bright: #eab308;
+  --primary: #6A1B75;
+  --primary-bright: #8E24AA;
   --coral: #e94335;
   /* --deep-purple: #6A1B75; */
 }
@@ -18,8 +20,10 @@
   --color-brand-600: #155f61;
   --color-brand-500: #1a7a7d;
   --color-brand-100: #e6f4f4;
-  --color-gold: #6A1B75;
-  --color-gold-bright: #6A1B75;
+  --color-gold: var(--gold);
+  --color-gold-bright: var(--gold-bright);
+  --color-primary: var(--primary);
+  --color-primary-bright: var(--primary-bright);
   --color-coral: #e94335;
 }
 

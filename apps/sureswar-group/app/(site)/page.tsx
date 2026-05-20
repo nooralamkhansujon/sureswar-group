@@ -79,12 +79,12 @@ export default function HomePage() {
                 — Sureswar Group —
               </p>
 
-              <h1 className="mt-6 text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl lg:text-[3.25rem] lg:leading-[1.15]">
+              <h1 className="mt-6 text-3xl font-bold leading-tight tracking-tight text-white  sm:text-4xl md:text-5xl lg:text-[3.25rem] lg:leading-[1.15]">
                 Sureswar Group
               </h1>
 
               <p className="mx-auto mt-5 max-w-4xl text-base font-medium leading-snug text-white/95 sm:text-lg md:text-xl">
-                <span className="font-display italic text-gold-bright">
+                <span className="font-bold text-gold-bright">
                   Trusted Excellence in Travel, Workforce Solutions, Contracting & International Trade
                 </span>
               </p>
@@ -107,13 +107,13 @@ export default function HomePage() {
               <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:mt-12 sm:flex-row sm:gap-6">
                 <Link
                   href="/our-companies"
-                  className="inline-flex min-w-[220px] items-center justify-center rounded-full bg-gold px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-black/30 transition hover:bg-gold-bright"
+                  className="inline-flex min-w-[220px] items-center justify-center rounded-full bg-primary px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-black/30 transition hover:bg-primary-bright"
                 >
                   Explore Our Companies
                 </Link>
                 <Link
                   href="/contact"
-                  className="inline-flex min-w-[220px] items-center justify-center rounded-full border border-white/25 bg-white/5 px-8 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition hover:border-gold/60 hover:bg-white/10"
+                  className="inline-flex min-w-[220px] items-center justify-center rounded-full border border-white/25 bg-white/5 px-8 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition hover:border-primary/60 hover:bg-white/10"
                 >
                   Contact Corporate Office
                 </Link>
@@ -133,9 +133,9 @@ export default function HomePage() {
 
           <div
             id="ventures"
-            className="relative z-10 mx-auto mt-auto w-full max-w-6xl border-t border-white/10 bg-black/35 px-4 py-8 backdrop-blur-md sm:px-6"
+            className="relative z-10 mx-auto mt-auto w-full max-w-6xl border-t border-black/5 bg-white px-4 py-8 backdrop-blur-md sm:px-6"
           >
-            <div className="grid gap-8 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-white/15">
+            <div className="grid gap-8 sm:grid-cols-3 sm:gap-4">
               <FeatureColumn
                 index="01"
                 icon={<PlaneIcon className="text-gold" />}
@@ -168,7 +168,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-12 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-center">
             <div className="relative">
-              <div className="absolute -left-4 -top-4 h-72 w-72 bg-gold/5 rounded-full blur-3xl" />
+              <div className="absolute -left-4 -top-4 h-72 w-72 bg-primary/5 rounded-full blur-3xl" />
               <div className="relative">
                 <h2 className="text-sm font-semibold uppercase tracking-[0.25em] text-gold">
                   About Sureswar Group
@@ -215,7 +215,7 @@ export default function HomePage() {
                 <div className="mt-12 flex flex-wrap gap-6">
                   <Link
                     href="/about"
-                    className="inline-flex items-center justify-center rounded-full bg-[#0a0a0b] px-8 py-3 text-sm font-semibold text-white transition hover:bg-gold hover:text-white"
+                    className="inline-flex items-center justify-center rounded-full bg-[#0a0a0b] px-8 py-3 text-sm font-semibold text-white transition hover:bg-primary hover:text-white"
                   >
                     Our History
                   </Link>
@@ -236,7 +236,7 @@ export default function HomePage() {
                   className="h-full w-full object-cover grayscale-[0.2] transition duration-700 hover:scale-105 hover:grayscale-0"
                 />
               </div>
-              <div className="absolute -bottom-6 -right-6 -z-10 h-32 w-32 rounded-2xl bg-gold/10 backdrop-blur-3xl" />
+              <div className="absolute -bottom-6 -right-6 -z-10 h-32 w-32 rounded-2xl bg-primary/10 backdrop-blur-3xl" />
             </div>
           </div>
         </div>
@@ -514,49 +514,7 @@ export default function HomePage() {
         </Box>
       </Box>
 
-      {/* ── CORPORATE VISION ── */}
-      <Box
-        component="section"
-        sx={{
-          py: { xs: 12, sm: 16 },
-          px: { xs: 3, lg: 4 },
-          bgcolor: "#ffffff",
-          textAlign: "center",
-        }}
-      >
-        <Box sx={{ mx: "auto", maxWidth: "48rem" }}>
-          <Typography
-            variant="overline"
-            sx={{ color: BRANDING.primary, letterSpacing: "0.25em", fontWeight: 700 }}
-          >
-            Corporate Vision
-          </Typography>
-          <Typography
-            variant="h2"
-            sx={{
-              mt: 2,
-              fontSize: { xs: "1.75rem", sm: "2.5rem" },
-              fontWeight: 800,
-              color: "#0a0a0b",
-              lineHeight: 1.2,
-            }}
-          >
-            Driving Global Opportunities Through Integrated Solutions
-          </Typography>
-          <Typography
-            sx={{
-              mt: 4,
-              fontSize: { xs: "1rem", sm: "1.125rem" },
-              color: "text.secondary",
-              lineHeight: 1.8,
-            }}
-          >
-            Sureswar Group is committed to expanding its global footprint by strengthening existing
-            operations, enhancing service capabilities, and building sustainable partnerships across
-            international markets.
-          </Typography>
-        </Box>
-      </Box>
+
 
       {/* ── CALL TO ACTION ── */}
       <Box
@@ -607,7 +565,7 @@ export default function HomePage() {
           >
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center rounded-full bg-white px-10 py-4 text-[0.9rem] font-bold uppercase tracking-[0.05em] text-gold shadow-lg transition hover:bg-zinc-100"
+              className="inline-flex items-center justify-center rounded-full bg-white px-10 py-4 text-[0.9rem] font-bold uppercase tracking-[0.05em] text-primary shadow-lg transition hover:bg-zinc-100"
             >
               Contact Corporate Office
             </Link>
@@ -618,6 +576,50 @@ export default function HomePage() {
               Explore Our Companies
             </Link>
           </Stack>
+        </Box>
+      </Box>
+
+      {/* ── CORPORATE VISION ── */}
+      <Box
+        component="section"
+        sx={{
+          py: { xs: 12, sm: 16 },
+          px: { xs: 3, lg: 4 },
+          bgcolor: "#ffffff",
+          textAlign: "center",
+        }}
+      >
+        <Box sx={{ mx: "auto", maxWidth: "48rem" }}>
+          <Typography
+            variant="overline"
+            sx={{ color: BRANDING.primary, letterSpacing: "0.25em", fontWeight: 700 }}
+          >
+            Corporate Vision
+          </Typography>
+          <Typography
+            variant="h2"
+            sx={{
+              mt: 2,
+              fontSize: { xs: "1.75rem", sm: "2.5rem" },
+              fontWeight: 800,
+              color: "#0a0a0b",
+              lineHeight: 1.2,
+            }}
+          >
+            Driving Global Opportunities Through Integrated Solutions
+          </Typography>
+          <Typography
+            sx={{
+              mt: 4,
+              fontSize: { xs: "1rem", sm: "1.125rem" },
+              color: "text.secondary",
+              lineHeight: 1.8,
+            }}
+          >
+            Sureswar Group is committed to expanding its global footprint by strengthening existing
+            operations, enhancing service capabilities, and building sustainable partnerships across
+            international markets.
+          </Typography>
         </Box>
       </Box>
 
@@ -662,7 +664,7 @@ function FeatureColumn({
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className={`${className} rounded-lg transition hover:bg-white/5 sm:px-6`}
+        className={`${className} rounded-lg transition bg-primary hover:bg-primary-bright py-4 sm:px-6`}
       >
         {inner}
       </a>
@@ -670,7 +672,7 @@ function FeatureColumn({
   }
 
   return (
-    <Link href={href} className={`${className} rounded-lg transition hover:bg-white/5 sm:px-6`}>
+    <Link href={href} className={`${className} rounded-lg transition bg-primary hover:bg-primary-bright py-4 sm:px-6`}>
       {inner}
     </Link>
   );

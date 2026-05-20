@@ -421,7 +421,7 @@ export default function HolidayExpressPage() {
                             {pkg.price}
                           </Typography>
                         </Box>
-                        <Button
+                        {/* <Button
                           variant="contained"
                           sx={{
                             bgcolor: "#0a0a0b",
@@ -432,7 +432,7 @@ export default function HolidayExpressPage() {
                           }}
                         >
                           Book Now
-                        </Button>
+                        </Button> */}
                       </Box>
                     </Box>
                   </CardContent>

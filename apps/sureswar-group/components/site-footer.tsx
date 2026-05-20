@@ -1,17 +1,17 @@
 import Link from "next/link";
 import { BrandMark } from "@/components/brand-mark";
-import { contact } from "@/lib/site-config";
+import { contact, BRANDING } from "@/lib/site-config";
 import { isBranch, mainNav, type NavBranch, type NavLeaf } from "@/lib/navigation";
 
 const exploreLinks = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
+  { href: "/about", label: "About Us" },
   { href: "/our-companies", label: "Our Companies" },
-  { href: "/news", label: "News / Updates" },
+  { href: "/news", label: "News & Updates" },
   { href: "/contact", label: "Contact" },
 ] as const;
 
-const subfooterLinks = [
+const legalLinks = [
   { href: "/contact", label: "Contact" },
   { href: "/news", label: "News" },
 ] as const;
@@ -21,19 +21,17 @@ function companiesBranch(): NavBranch | undefined {
 }
 
 function FooterLink({ item }: { item: NavLeaf }) {
-  const className =
-    "transition-colors hover:text-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold/60";
-
+  const cls =
+    "text-sm text-white/60 hover:text-white transition-colors duration-200";
   if (item.external) {
     return (
-      <a className={className} href={item.href} target="_blank" rel="noopener noreferrer">
+      <a className={cls} href={item.href} target="_blank" rel="noopener noreferrer">
         {item.label}
       </a>
     );
   }
-
   return (
-    <Link className={className} href={item.href}>
+    <Link className={cls} href={item.href}>
       {item.label}
     </Link>
   );
@@ -41,60 +39,77 @@ function FooterLink({ item }: { item: NavLeaf }) {
 
 export function SiteFooter() {
   const companies = companiesBranch()?.children ?? [];
+  const year = new Date().getFullYear();
 
   return (
-    <footer className="mt-auto border-t border-white/10 bg-[#060607] text-zinc-400">
-      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+    <footer
+      style={{ background: "linear-gradient(160deg, #3b0764 0%, #4A148C 40%, #6A1B75 100%)" }}
+      className="mt-auto text-white"
+    >
+      {/* Top accent line */}
+      <div
+        style={{ background: "linear-gradient(90deg, #8E24AA, #e94335, #6A1B75)" }}
+        className="h-[3px] w-full opacity-80"
+      />
+
+      {/* Main footer content */}
+      <div className="mx-auto max-w-6xl px-6 py-14 lg:px-8">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-          <div>
+
+          {/* Brand column */}
+          <div className="sm:col-span-2 lg:col-span-1">
             <Link
               href="/"
-              className="group inline-flex max-w-full items-start gap-3 no-underline transition-transform hover:-translate-y-px"
+              className="group inline-flex items-center gap-3 no-underline"
             >
-              <span className="relative mt-0.5 shrink-0 transition-opacity group-hover:opacity-100">
+              <span className="shrink-0 transition-opacity group-hover:opacity-90">
                 <BrandMark />
               </span>
-              <span className="min-w-0 leading-tight">
-                <span className="flex flex-wrap items-baseline gap-x-1">
-                  <span
-                    className="text-base font-extrabold tracking-tight sm:text-lg"
-                    style={{
-                      backgroundImage: "linear-gradient(135deg, #e94335 0%, #c5331f 100%)",
-                      WebkitBackgroundClip: "text",
-                      backgroundClip: "text",
-                      color: "transparent",
-                    }}
-                  >
-                    SURESWAR
-                  </span>
-                  <span
-                    className="text-base font-bold tracking-tight text-white sm:text-lg"
-                    style={{
-                      WebkitTextStroke: "1px #e94335",
-                      paintOrder: "stroke fill",
-                    }}
-                  >
-                    GROUP
-                  </span>
+              <span className="leading-tight">
+                <span
+                  className="block text-lg font-extrabold tracking-tight text-white"
+                >
+                  SURESWAR
+                  <span className="ml-1 font-bold opacity-80">GROUP</span>
                 </span>
-                {/* <span className="mt-1 block text-[9px] font-semibold tracking-[0.32em] text-gold">
-                  SURESWAR GROUP
-                </span> */}
-                <p className="mt-3 text-sm leading-relaxed text-zinc-500">
-                  A diversified business group committed to quality, integrity, and long-term
-                  partnerships.
-                </p>
               </span>
             </Link>
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/55">
+              A diversified business group committed to quality, integrity, and
+              long-term partnerships.
+            </p>
+            <address className="mt-5 not-italic space-y-1.5 text-sm text-white/55">
+              <p>{contact.mapQuery}</p>
+              <p>
+                <a
+                  href={`tel:${contact.phoneTel}`}
+                  className="hover:text-white transition-colors"
+                >
+                  {contact.phoneDisplay}
+                </a>
+              </p>
+              <p>
+                <a
+                  href={`mailto:${contact.email}`}
+                  className="hover:text-white transition-colors"
+                >
+                  {contact.email}
+                </a>
+              </p>
+            </address>
           </div>
+
+          {/* Explore column */}
           <div>
-            <p className="text-xs font-semibold uppercase tracking-wider text-white/90">Explore</p>
-            <nav aria-label="Footer explore" className="mt-3">
-              <ul className="space-y-2 text-sm">
+            <p className="text-xs font-semibold uppercase tracking-widest text-white/40">
+              Explore
+            </p>
+            <nav aria-label="Footer explore" className="mt-4">
+              <ul className="space-y-2.5">
                 {exploreLinks.map((link) => (
                   <li key={link.href}>
                     <Link
-                      className="transition-colors hover:text-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold/60"
+                      className="text-sm text-white/60 hover:text-white transition-colors duration-200"
                       href={link.href}
                     >
                       {link.label}
@@ -104,12 +119,14 @@ export function SiteFooter() {
               </ul>
             </nav>
           </div>
+
+          {/* Companies column */}
           <div>
-            <p className="text-xs font-semibold uppercase tracking-wider text-white/90">
-              Our companies
+            <p className="text-xs font-semibold uppercase tracking-widest text-white/40">
+              Our Companies
             </p>
-            <nav aria-label="Footer companies" className="mt-3">
-              <ul className="space-y-2 text-sm">
+            <nav aria-label="Footer companies" className="mt-4">
+              <ul className="space-y-2.5">
                 {companies.map((item) => (
                   <li key={`${item.href}-${item.label}`}>
                     <FooterLink item={item} />
@@ -118,59 +135,51 @@ export function SiteFooter() {
               </ul>
             </nav>
           </div>
+
+          {/* Contact / CTA column */}
           <div>
-            <p className="text-xs font-semibold uppercase tracking-wider text-white/90">Contact</p>
-            <address className="mt-3 not-italic">
-              <ul className="space-y-2 text-sm">
-                <li>
-                  <a
-                    className="transition-colors hover:text-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold/60"
-                    href={`tel:${contact.phoneTel}`}
-                  >
-                    {contact.phoneDisplay}
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="transition-colors hover:text-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold/60"
-                    href={`mailto:${contact.email}`}
-                  >
-                    {contact.email}
-                  </a>
-                </li>
-                <li className="text-zinc-500">{contact.mapQuery}</li>
-                <li>
-                  <Link
-                    className="transition-colors hover:text-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold/60"
-                    href="/contact"
-                  >
-                    Inquiry form
-                  </Link>
-                </li>
-              </ul>
-            </address>
+            <p className="text-xs font-semibold uppercase tracking-widest text-white/40">
+              Get in Touch
+            </p>
+            <div className="mt-4 space-y-3">
+              <Link
+                href="/contact"
+                className="inline-flex w-full items-center justify-center rounded-lg border border-white/20 bg-white/10 px-4 py-2.5 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-200 hover:bg-white/20 hover:border-white/40"
+              >
+                Send an Enquiry
+              </Link>
+              <a
+                href={`tel:${contact.phoneTel}`}
+                className="inline-flex w-full items-center justify-center rounded-lg border border-white/10 px-4 py-2.5 text-sm text-white/70 transition-all duration-200 hover:bg-white/10 hover:text-white"
+              >
+                {contact.phoneDisplay}
+              </a>
+            </div>
           </div>
         </div>
-        <div className="mt-10 border-t border-white/10 bg-[#050506] px-0 py-6 sm:px-0">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-center text-xs text-zinc-600 sm:text-left">
-              © {new Date().getFullYear()} Sureswar Group. All rights reserved.
-            </p>
-            <nav
-              aria-label="Footer utilities"
-              className="flex flex-wrap items-center justify-center gap-4 text-xs sm:justify-end"
-            >
-              {subfooterLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  className="text-zinc-500 transition-colors hover:text-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold/60"
-                  href={link.href}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
-          </div>
+
+        {/* Divider */}
+        <div className="mt-12 border-t border-white/10" />
+
+        {/* Bottom bar */}
+        <div className="mt-6 flex flex-col items-center justify-between gap-3 sm:flex-row">
+          <p className="text-xs text-white/35">
+            © {year} Sureswar Group. All rights reserved.
+          </p>
+          <nav
+            aria-label="Footer legal"
+            className="flex items-center gap-5"
+          >
+            {legalLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-xs text-white/40 transition-colors hover:text-white/70"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
         </div>
       </div>
     </footer>
