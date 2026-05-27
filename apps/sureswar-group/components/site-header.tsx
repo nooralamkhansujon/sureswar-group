@@ -418,9 +418,9 @@ function MobileLeafItem({
 export function SiteHeader() {
   const pathname = usePathname();
   const isHome = pathname === "/";
-  const [menuOpen, setMenuOpen] = useState<boolean>(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const closeMenu = useRef<boolean>(() => setMenuOpen(false)).current;
+  const closeMenu = useRef(() => setMenuOpen(false)).current;
 
   useEffect(() => {
     if (!isHome) {
