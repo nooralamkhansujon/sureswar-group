@@ -69,10 +69,10 @@ export default function HomePage() {
 
         <div className="relative z-10 flex flex-1 flex-col px-4 pb-6 pt-28 sm:px-6 sm:pt-32">
           <div className="mx-auto flex w-full max-w-5xl flex-1 flex-col items-center text-center">
-            <div className="flex w-full max-w-4xl justify-between gap-4 text-[10px] font-medium uppercase tracking-[0.35em] text-white/80 sm:text-[11px]">
-              <span>Sureswar Group</span>
-              <span>Bangladesh · Corporate</span>
-            </div>
+            {/*<div className="flex w-full max-w-4xl justify-between gap-4 text-[10px] font-medium uppercase tracking-[0.35em] text-white/80 sm:text-[11px]">*/}
+            {/*  <span>Sureswar Group</span>*/}
+            {/*  <span>Bangladesh · Corporate</span>*/}
+            {/*</div>*/}
 
             <div className="mt-16 flex flex-1 flex-col justify-center sm:mt-20">
               <p className="text-[11px] font-medium uppercase tracking-[0.45em] text-gold sm:text-xs">
@@ -443,7 +443,13 @@ export default function HomePage() {
           <Box sx={{ textAlign: "center", mb: 8 }}>
             <Typography
               variant="overline"
-              sx={{ color: BRANDING.primary, letterSpacing: "0.25em", fontWeight: 600 }}
+              component="p"
+              sx={{
+                color: "#eab308",
+                letterSpacing: "0.25em",
+                fontWeight: 600,
+                fontSize: { xs: "1.5rem", sm: "1.5rem" },
+              }}
             >
               Why Sureswar Group
             </Typography>

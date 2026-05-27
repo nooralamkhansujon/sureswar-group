@@ -10,11 +10,23 @@ export const contact = {
   phoneDisplay: "+880 1711-000000",
   phoneTel: "+8801711000000",
   email: "info@sureswargroup.com",
+  facebook: "https://www.facebook.com/share/1BVc5q6XqX/?mibextid=wwXIfr",
+  /** Pre-filled message when opening WhatsApp chat. */
+  whatsappMessage: "Hello, I would like to get in touch with Sureswar Group.",
   /** Used for the embedded map search; update to your registered address. */
   mapQuery: "Dhaka, Bangladesh",
 } as const;
 
+/** Opens WhatsApp Web or the mobile app for the configured contact number. */
+export function getWhatsAppUrl(message = contact.whatsappMessage): string {
+  const phone = contact.phoneTel.replace(/\D/g, "");
+  const base = `https://wa.me/${phone}`;
+  if (!message) return base;
+  return `${base}?text=${encodeURIComponent(message)}`;
+}
+
 export const BRANDING = {
+  logoSrc: "/images/sureswar-group-logo.jpeg",
   primary: "#6A1B75",         // Central deep purple color
   primaryBright: "#8E24AA",   // Bright accent purple
   primaryDark: "#4A148C",     // Dark accent purple

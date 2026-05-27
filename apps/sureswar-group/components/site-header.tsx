@@ -418,9 +418,9 @@ function MobileLeafItem({
 export function SiteHeader() {
   const pathname = usePathname();
   const isHome = pathname === "/";
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const [scrolled, setScrolled] = useState(false);
-  const closeMenu = useRef(() => setMenuOpen(false)).current;
+  const closeMenu = useRef<boolean>(() => setMenuOpen(false)).current;
 
   useEffect(() => {
     if (!isHome) {
@@ -507,7 +507,7 @@ export function SiteHeader() {
               />
               <BrandMark />
             </Box>
-            <Box sx={{ display: "flex", flexDirection: "column", lineHeight: 1 }}>
+            <Box sx={{ display: "flex", flexDirection: "column", lineHeight: 1, marginTop:"-3px" }}>
               <Box sx={{ display: "flex", alignItems: "baseline" }}>
                 <Typography
                   component="span"
@@ -705,7 +705,7 @@ export function SiteHeader() {
                   SURESWAR
                 </Box>{" "}
                 <Box component="span" sx={{ color: "#000" }}>
-                  TRAVELS
+                  GROUP
                 </Box>
               </Typography>
               <Typography

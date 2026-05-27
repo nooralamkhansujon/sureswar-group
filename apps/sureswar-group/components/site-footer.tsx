@@ -1,7 +1,10 @@
 import Link from "next/link";
+import { FacebookSocialLink } from "@/components/facebook-social-link";
+import { WhatsAppSocialLink } from "@/components/whatsapp-social-link";
 import { BrandMark } from "@/components/brand-mark";
-import { contact, BRANDING } from "@/lib/site-config";
+import { contact } from "@/lib/site-config";
 import { isBranch, mainNav, type NavBranch, type NavLeaf } from "@/lib/navigation";
+import Typography from "@mui/material/Typography";
 
 const exploreLinks = [
   { href: "/", label: "Home" },
@@ -41,6 +44,14 @@ export function SiteFooter() {
   const companies = companiesBranch()?.children ?? [];
   const year = new Date().getFullYear();
 
+  const COLORS = {
+    coral: "#e94335",
+    surface: "#0a0a0b",
+    surface2: "#141416",
+  } as const;
+
+  const CORAL_GRADIENT = `linear-gradient(135deg, ${COLORS.coral} 0%, #c5331f 100%)`;
+
   return (
     <footer
       style={{ background: "linear-gradient(160deg, #3b0764 0%, #4A148C 40%, #6A1B75 100%)" }}
@@ -63,15 +74,43 @@ export function SiteFooter() {
               className="group inline-flex items-center gap-3 no-underline"
             >
               <span className="shrink-0 transition-opacity group-hover:opacity-90">
-                <BrandMark />
+                <BrandMark size={48} />
               </span>
               <span className="leading-tight">
-                <span
-                  className="block text-lg font-extrabold tracking-tight text-white"
-                >
+                {/*<span*/}
+                {/*  className="block text-lg font-extrabold tracking-tight text-white"*/}
+                {/*>*/}
+                   <Typography
+                       component="span"
+                       sx={{
+                         fontSize: { xs: 16, sm: 18 },
+                         fontWeight: 800,
+                         letterSpacing: "-0.01em",
+                         background: CORAL_GRADIENT,
+                         WebkitBackgroundClip: "text",
+                         WebkitTextFillColor: "transparent",
+                         backgroundClip: "text",
+                       }}
+                   >
                   SURESWAR
-                  <span className="ml-1 font-bold opacity-80">GROUP</span>
-                </span>
+                </Typography>
+                <Typography
+                    component="span"
+                    sx={{
+                      ml: 0.5,
+                      fontSize: { xs: 16, sm: 18 },
+                      fontWeight: 700,
+                      letterSpacing: "-0.01em",
+                      color: "#fff",
+                      WebkitTextStroke: `1px ${COLORS.coral}`,
+                      paintOrder: "stroke fill",
+                    }}
+                >
+                  GROUP
+                </Typography>
+                  {/*SURESWAR*/}
+                  {/*<span className="ml-1 font-bold opacity-80">GROUP</span>*/}
+                {/*</span>*/}
               </span>
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/55">
@@ -97,6 +136,10 @@ export function SiteFooter() {
                 </a>
               </p>
             </address>
+            <div className="mt-5 flex gap-2">
+              <FacebookSocialLink className="h-10 w-10 border border-white/20 bg-white/10 hover:border-white/40 hover:bg-white/20" />
+              <WhatsAppSocialLink className="h-10 w-10" />
+            </div>
           </div>
 
           {/* Explore column */}

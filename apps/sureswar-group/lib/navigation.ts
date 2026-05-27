@@ -55,7 +55,7 @@ export const mainNav: NavEntry[] = [
         label: "Supply & Security Equipment",
         href: "/sadi-corporation#supply-security-equipment",
       },
-      { label: "Contact", href: "/sadi-corporation#contact" },
+      // { label: "Contact", href: "/sadi-corporation#contact" },
     ],
   },
   {
