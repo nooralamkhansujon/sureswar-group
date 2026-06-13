@@ -1,0 +1,70 @@
+"use client";
+
+import { useCallback, useEffect, useState } from "react";
+import { navSections } from "@/lib/navigation";
+
+export function SiteNavbar() {
+  const [open, setOpen] = useState(false);
+  const close = useCallback(() => setOpen(false), []);
+
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") close();
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [close]);
+
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  return (
+    <nav className="st-nav" aria-label="Primary">
+      <a href="/#top" className="nav-logo" onClick={close}>
+        <div className="logo-main">
+          <span className="logo-sureswar">Sureswar</span>
+          <span className="logo-travels">Travels</span>
+        </div>
+        <div className="logo-sub">Travels Agency of Bangladesh</div>
+      </a>
+
+      <button
+        type="button"
+        className="nav-toggle"
+        aria-expanded={open}
+        aria-controls="st-nav-menu"
+        onClick={() => setOpen((v) => !v)}
+      >
+        <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
+        {open ? (
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+            <path d="M6 18L18 6M6 6l12 12" strokeLinecap="round" />
+          </svg>
+        ) : (
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+            <path d="M4 6h16M4 12h16M4 18h16" strokeLinecap="round" />
+          </svg>
+        )}
+      </button>
+
+      <ul id="st-nav-menu" className={open ? "is-open" : undefined}>
+        {navSections.map((item) => (
+          <li key={item.href}>
+            <a href={item.href} onClick={close}>
+              {item.name}
+            </a>
+          </li>
+        ))}
+        <li>
+          <a href="#contact" className="nav-cta" onClick={close}>
+            Contact Us
+          </a>
+        </li>
+      </ul>
+    </nav>
+  );
+}

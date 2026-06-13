@@ -1,7 +1,7 @@
 /** Replace with real URLs when available. */
 export const externalUrls = {
   sureswarTravels:
-    process.env.NEXT_PUBLIC_SURESWAR_TRAVELS_URL ?? "https://example.com/sureswar-travels",
+    process.env.NEXT_PUBLIC_SURESWAR_TRAVELS_URL ?? "https://www.sureswartravels.com",
   hiCareServices:
     process.env.NEXT_PUBLIC_HICARE_SERVICES_URL ?? "https://example.com/hicare-services",
 } as const;
