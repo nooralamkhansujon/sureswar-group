@@ -3,16 +3,10 @@ export type NavSection = {
   href: string;
 };
 
-export const navHome: NavSection = {
-  name: "Home",
-  href: "/#top",
-};
-
 export const navSections: NavSection[] = [
-  { name: "About", href: "#about" },
-  { name: "Services", href: "#services" },
-  { name: "Hajj & Umrah", href: "#hajj-umrah" },
-  { name: "Packages", href: "#packages" },
-  { name: "Chairman", href: "#chairman" },
-  { name: "Team", href: "#team" },
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Hajj & Umrah", href: "/hajj-umrah" },
+  { name: "Packages", href: "/packages" },
+  // { name: "Contact", href: "/contact" },
 ];

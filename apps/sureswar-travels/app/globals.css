@@ -347,6 +347,12 @@ em {
   margin-bottom: 48px;
 }
 
+.section-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
 .section-grid {
   display: grid;
   grid-template-columns: 1fr 340px;
@@ -820,6 +826,12 @@ em {
 
 .form-success {
   color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.form-error {
+  color: #ff8a8a;
   font-size: 14px;
   margin-bottom: 12px;
 }

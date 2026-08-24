@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Playfair_Display } from "next/font/google";
 
+import { SiteFooter } from "@/components/site-footer";
 import { SiteNavbar } from "@/components/site-navbar";
 import "./globals.css";
 
@@ -37,6 +38,7 @@ export default function RootLayout({
         </div>
         <SiteNavbar />
         {children}
+        <SiteFooter />
       </body>
     </html>
   );

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import { navSections } from "@/lib/navigation";
 
@@ -24,13 +25,13 @@ export function SiteNavbar() {
 
   return (
     <nav className="st-nav" aria-label="Primary">
-      <a href="/#top" className="nav-logo" onClick={close}>
+      <Link href="/" className="nav-logo" onClick={close}>
         <div className="logo-main">
           <span className="logo-sureswar">Sureswar</span>
           <span className="logo-travels">Travels</span>
         </div>
         <div className="logo-sub">Travels Agency of Bangladesh</div>
-      </a>
+      </Link>
 
       <button
         type="button"
@@ -54,15 +55,15 @@ export function SiteNavbar() {
       <ul id="st-nav-menu" className={open ? "is-open" : undefined}>
         {navSections.map((item) => (
           <li key={item.href}>
-            <a href={item.href} onClick={close}>
+            <Link href={item.href} onClick={close}>
               {item.name}
-            </a>
+            </Link>
           </li>
         ))}
         <li>
-          <a href="#contact" className="nav-cta" onClick={close}>
+          <Link href="/contact" className="nav-cta" onClick={close}>
             Contact Us
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>

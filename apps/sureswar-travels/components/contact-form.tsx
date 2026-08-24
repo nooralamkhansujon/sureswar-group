@@ -1,17 +1,57 @@
 "use client";
 
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 const SERVICE_UNSET = "__unset__";
 
+const SERVICE_LABELS: Record<string, string> = {
+  "air-ticket": "Air ticket booking",
+  "hajj-umrah": "Hajj & Umrah package",
+  holiday: "Holiday / tour package",
+  visa: "Visa assistance",
+  corporate: "Corporate travel",
+  other: "Other inquiry",
+};
+
 export function ContactForm() {
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   return (
     <form
-      onSubmit={(e) => {
+      onSubmit={async (e) => {
         e.preventDefault();
-        setSent(true);
+        setSent(false);
+        setError(null);
+        setSending(true);
+
+        const form = e.currentTarget;
+        const formData = new FormData(form);
+        const service = String(formData.get("service"));
+
+        try {
+          await emailjs.send(
+            process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+            process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+            {
+              to_email: process.env.NEXT_PUBLIC_CONTACT_EMAIL,
+              name: formData.get("name"),
+              phone: formData.get("phone"),
+              email: formData.get("email"),
+              service: SERVICE_LABELS[service] ?? service,
+              message: formData.get("message"),
+            },
+            { publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY }
+          );
+          form.reset();
+          setSent(true);
+        } catch {
+          setError("Something went wrong sending your inquiry. Please try again or call us directly.");
+        } finally {
+          setSending(false);
+        }
       }}
     >
       <div className="form-row">
@@ -51,8 +91,9 @@ export function ContactForm() {
           Thank you — your inquiry has been recorded. Our team will contact you shortly.
         </p>
       ) : null}
-      <button type="submit" className="btn-submit" disabled={sent}>
-        {sent ? "Sent" : "Send inquiry"}
+      {error ? <p className="form-error">{error}</p> : null}
+      <button type="submit" className="btn-submit" disabled={sending}>
+        {sending ? "Sending..." : "Send inquiry"}
       </button>
     </form>
   );
