@@ -1,17 +1,56 @@
 "use client";
+
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 /** Avoid `defaultValue=""` + disabled empty option — browsers normalize selection differently from SSR (hydration mismatch). */
 const INTEREST_UNSET = "__unset__";
 
+const INTEREST_LABELS: Record<string, string> = {
+  employer: "Hiring / employer services",
+  candidate: "Candidate registration",
+  partnership: "Partnership",
+  other: "Other",
+};
+
 export function ContactForm() {
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   return (
     <form
-      onSubmit={(e) => {
+      onSubmit={async (e) => {
         e.preventDefault();
-        setSent(true);
+        setSent(false);
+        setError(null);
+        setSending(true);
+
+        const form = e.currentTarget;
+        const formData = new FormData(form);
+        const interest = String(formData.get("interest"));
+
+        try {
+          await emailjs.send(
+            process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+            process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+            {
+              to_email: process.env.NEXT_PUBLIC_CONTACT_EMAIL,
+              name: formData.get("name"),
+              email: formData.get("email"),
+              organization: formData.get("organization"),
+              interest: INTEREST_LABELS[interest] ?? interest,
+              message: formData.get("message"),
+            },
+            { publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY }
+          );
+          form.reset();
+          setSent(true);
+        } catch {
+          setError("Something went wrong sending your message. Please try again or contact us directly.");
+        } finally {
+          setSending(false);
+        }
       }}
     >
       <div className="form-row">
@@ -46,12 +85,14 @@ export function ContactForm() {
       </div>
       {sent ? (
         <p style={{ color: "rgba(255,255,255,0.85)", fontSize: 14, marginBottom: 12 }}>
-          Thank you — your message has been recorded for this demo. Connect the form to your backend or email service
-          when ready.
+          Thank you — your message has been recorded. Our team will get back to you shortly.
         </p>
       ) : null}
-      <button type="submit" className="btn-submit" disabled={sent}>
-        {sent ? "Sent" : "Send message"}
+      {error ? (
+        <p style={{ color: "#ff8a8a", fontSize: 14, marginBottom: 12 }}>{error}</p>
+      ) : null}
+      <button type="submit" className="btn-submit" disabled={sending}>
+        {sending ? "Sending..." : "Send message"}
       </button>
     </form>
   );
