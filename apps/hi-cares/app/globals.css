@@ -163,11 +163,13 @@ h4 {
   transition: transform 0.3s;
 }
 
-.hicare-nav ul a:hover {
+.hicare-nav ul a:hover,
+.hicare-nav ul a.is-active {
   color: var(--magenta);
 }
 
-.hicare-nav ul a:hover::after {
+.hicare-nav ul a:hover::after,
+.hicare-nav ul a.is-active::after {
   transform: scaleX(1);
 }
 
@@ -180,7 +182,8 @@ h4 {
   transition: background 0.2s !important;
 }
 
-.nav-cta:hover {
+.nav-cta:hover,
+.nav-cta.is-active {
   background: var(--magenta) !important;
   color: white !important;
 }
@@ -412,6 +415,49 @@ h4 {
   color: var(--text-mid);
   font-weight: 300;
   max-width: 560px;
+}
+
+/* PAGE BANNER (simple hero-style header for non-home pages) */
+.page-banner {
+  position: relative;
+  overflow: hidden;
+  padding: calc(100px + var(--hicare-strip-h)) 60px 64px;
+  background: linear-gradient(135deg, var(--blue) 0%, #0d2260 100%);
+  text-align: center;
+}
+
+.page-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 55%, var(--magenta) 55%, var(--magenta) 100%);
+  opacity: 0.22;
+}
+
+.page-banner-content {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.page-banner .hero-badge {
+  margin-bottom: 18px;
+}
+
+.page-banner h1 {
+  font-size: clamp(30px, 4vw, 46px);
+  font-weight: 800;
+  line-height: 1.15;
+  color: white;
+  margin-bottom: 14px;
+}
+
+.page-banner p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.88);
+  font-weight: 300;
 }
 
 /* VISION (brochure — light, centered statement) */
@@ -1611,6 +1657,10 @@ h4 {
   .hero {
     padding: calc(100px + var(--hicare-strip-h)) 24px 60px;
     flex-direction: column;
+  }
+
+  .page-banner {
+    padding: calc(100px + var(--hicare-strip-h)) 24px 48px;
   }
 
   .hero-content {

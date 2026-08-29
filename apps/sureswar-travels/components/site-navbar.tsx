@@ -1,11 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import { navSections } from "@/lib/navigation";
 
 export function SiteNavbar() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
   const close = useCallback(() => setOpen(false), []);
 
   useEffect(() => {
@@ -53,15 +55,28 @@ export function SiteNavbar() {
       </button>
 
       <ul id="st-nav-menu" className={open ? "is-open" : undefined}>
-        {navSections.map((item) => (
-          <li key={item.href}>
-            <Link href={item.href} onClick={close}>
-              {item.name}
-            </Link>
-          </li>
-        ))}
+        {navSections.map((item) => {
+          const isActive = pathname === item.href;
+          return (
+            <li key={item.href}>
+              <Link
+                href={item.href}
+                className={isActive ? "is-active" : undefined}
+                aria-current={isActive ? "page" : undefined}
+                onClick={close}
+              >
+                {item.name}
+              </Link>
+            </li>
+          );
+        })}
         <li>
-          <Link href="/contact" className="nav-cta" onClick={close}>
+          <Link
+            href="/contact"
+            className={`nav-cta${pathname === "/contact" ? " is-active" : ""}`}
+            aria-current={pathname === "/contact" ? "page" : undefined}
+            onClick={close}
+          >
             Contact Us
           </Link>
         </li>

@@ -1,11 +1,13 @@
 "use client";
 
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import { navSections } from "@/lib/navigation";
 
-/** Native anchors avoid Next.js `Link` normalizing hash hrefs (SSR vs client mismatch). */
 export function SiteNavbar() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   const close = useCallback(() => setOpen(false), []);
 
@@ -26,18 +28,18 @@ export function SiteNavbar() {
 
   return (
     <nav className="hicare-nav" aria-label="Primary">
-      <a href="/#top" className="nav-logo" onClick={close}>
+      <Link href="/" className="nav-logo" onClick={close}>
         <div className="hi">
           H
           <span className="hi-i-wrap">
             <span className="hi-i-dot" aria-hidden />
-            {"\u0131"}
+            {"ı"}
           </span>
           Care
         </div>
         <div className="sub">SERVICES LTD.</div>
         <div className="license-tag">Recruiting License # 2234</div>
-      </a>
+      </Link>
 
       <button
         type="button"
@@ -59,17 +61,30 @@ export function SiteNavbar() {
       </button>
 
       <ul id="hicare-nav-menu" className={open ? "is-open" : undefined}>
-        {navSections.map((item) => (
-          <li key={item.href}>
-            <a href={item.href} onClick={close}>
-              {item.name}
-            </a>
-          </li>
-        ))}
+        {navSections.map((item) => {
+          const isActive = pathname === item.href;
+          return (
+            <li key={item.href}>
+              <Link
+                href={item.href}
+                className={isActive ? "is-active" : undefined}
+                aria-current={isActive ? "page" : undefined}
+                onClick={close}
+              >
+                {item.name}
+              </Link>
+            </li>
+          );
+        })}
         <li>
-          <a href="#contact" className="nav-cta" onClick={close}>
+          <Link
+            href="/contact"
+            className={`nav-cta${pathname === "/contact" ? " is-active" : ""}`}
+            aria-current={pathname === "/contact" ? "page" : undefined}
+            onClick={close}
+          >
             Contact Us
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>
