@@ -16,7 +16,6 @@ import Chip from "@mui/material/Chip";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import Button from "@mui/material/Button";
 
 export const metadata: Metadata = {
   title: "Holiday Express — Curated Travel & Holiday Experiences",
@@ -33,7 +32,6 @@ const PACKAGES = [
     location: "Maldives",
     duration: "4 Days, 3 Nights",
     category: "International",
-    price: "$899",
     tags: ["Luxury", "Beach"],
     image:
       "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=800&q=80",
@@ -43,7 +41,6 @@ const PACKAGES = [
     location: "Bangladesh",
     duration: "3 Days, 2 Nights",
     category: "Domestic",
-    price: "৳12,500",
     tags: ["Leisure", "Sea"],
     image:
       "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?auto=format&fit=crop&w=800&q=80",
@@ -53,7 +50,6 @@ const PACKAGES = [
     location: "Bhutan",
     duration: "5 Days, 4 Nights",
     category: "International",
-    price: "$950",
     tags: ["Adventure", "Nature"],
     image:
       "https://images.unsplash.com/photo-1506461883276-594a12b11cf3?auto=format&fit=crop&w=800&q=80",
@@ -63,7 +59,6 @@ const PACKAGES = [
     location: "Singapore",
     duration: "4 Days, 3 Nights",
     category: "International",
-    price: "$750",
     tags: ["City", "Shopping"],
     image:
       "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=800&q=80",
@@ -73,7 +68,6 @@ const PACKAGES = [
     location: "Bangladesh",
     duration: "3 Days, 2 Nights",
     category: "Domestic",
-    price: "৳10,800",
     tags: ["Nature", "Relax"],
     image:
       "https://images.unsplash.com/photo-1762395146044-edf5314d331e?auto=format&fit=crop&w=800&q=80",
@@ -83,7 +77,6 @@ const PACKAGES = [
     location: "Indonesia",
     duration: "6 Days, 5 Nights",
     category: "International",
-    price: "$1,100",
     tags: ["Luxury", "Culture"],
     image:
       "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&q=80",
@@ -93,7 +86,6 @@ const PACKAGES = [
     location: "UAE",
     duration: "4 Days, 3 Nights",
     category: "International",
-    price: "$1,250",
     tags: ["Adventure", "Luxury"],
     image:
       "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80",
@@ -103,10 +95,18 @@ const PACKAGES = [
     location: "Nepal",
     duration: "7 Days, 6 Nights",
     category: "International",
-    price: "$850",
     tags: ["Adventure", "Hiking"],
     image:
       "https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    name: "Hajj & Umrah",
+    location: "Saudi Arabia",
+    duration: "14 Days, 13 Nights",
+    category: "International",
+    tags: ["Religious", "Pilgrimage"],
+    image:
+      "https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?auto=format&fit=crop&w=800&q=80",
   },
 ];
 
@@ -351,7 +351,12 @@ export default function HolidayExpressPage() {
                   }}
                 >
                   <Box sx={{ position: "relative" }}>
-                    <CardMedia component="img" height="240" image={pkg.image} alt={pkg.name} />
+                    <CardMedia
+                      component="img"
+                      image={pkg.image}
+                      alt={pkg.name}
+                      sx={{ height: 240, width: "100%", objectFit: "cover" }}
+                    />
                     <Chip
                       label={pkg.category}
                       sx={{
@@ -401,39 +406,7 @@ export default function HolidayExpressPage() {
                       ))}
                     </Stack>
                     <Box sx={{ mt: "auto" }}>
-                      <Divider sx={{ mb: 2 }} />
-                      <Box
-                        sx={{
-                          display: "flex",
-                          justifyContent: "space-between",
-                          alignItems: "center",
-                          gap: 2,
-                        }}
-                      >
-                        <Box>
-                          <Typography
-                            variant="caption"
-                            sx={{ color: "text.secondary", display: "block" }}
-                          >
-                            Starting from
-                          </Typography>
-                          <Typography variant="h6" sx={{ fontWeight: 800, color: "#1a7a7d" }}>
-                            {pkg.price}
-                          </Typography>
-                        </Box>
-                        {/* <Button
-                          variant="contained"
-                          sx={{
-                            bgcolor: "#0a0a0b",
-                            borderRadius: "100px",
-                            textTransform: "none",
-                            fontWeight: 700,
-                            "&:hover": { bgcolor: "#1a7a7d" },
-                          }}
-                        >
-                          Book Now
-                        </Button> */}
-                      </Box>
+                      <Divider />
                     </Box>
                   </CardContent>
                 </Card>

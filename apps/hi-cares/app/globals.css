@@ -987,11 +987,6 @@ h4 {
   margin: 0 auto;
 }
 
-.node-chairman {
-  background: var(--blue);
-  color: white;
-}
-
 .node-md {
   background: var(--magenta);
   color: white;
@@ -1043,13 +1038,6 @@ h4 {
   flex-wrap: wrap;
 }
 
-.org-h-connector {
-  width: min(72px, 12vw);
-  height: 3px;
-  background: var(--gold);
-  flex-shrink: 0;
-}
-
 .org-down {
   display: flex;
   flex-direction: column;
@@ -1099,7 +1087,9 @@ h4 {
 
 .messages-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
+  width: 80%;
+  margin-inline: auto;
   gap: 36px;
   margin-top: 40px;
   align-items: stretch;
@@ -1125,7 +1115,8 @@ h4 {
 
 .message-card {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: stretch;
   min-width: 0;
   background: var(--white);
   border-radius: 12px;
@@ -1136,12 +1127,11 @@ h4 {
 
 .message-card-photo {
   margin: 0;
-  flex: none;
+  flex: 1 1 50%;
   position: relative;
-  width: 100%;
-  /*aspect-ratio: 4 / 5;*/
+  width: 50%;
   overflow: hidden;
-  border-bottom: 4px solid var(--magenta);
+  border-right: 4px solid var(--magenta);
   background: #eef2f9;
 }
 
@@ -1159,7 +1149,7 @@ h4 {
 }
 
 .message-card-body {
-  flex: 1;
+  flex: 1 1 50%;
   padding: 28px 26px 32px;
   background: var(--white);
   color: var(--text-mid);
@@ -1742,5 +1732,15 @@ h4 {
   .messages-grid {
     grid-template-columns: 1fr;
     gap: 48px;
+  }
+
+  .message-card {
+    flex-direction: column;
+  }
+
+  .message-card-photo {
+    width: 100%;
+    border-right: none;
+    border-bottom: 4px solid var(--magenta);
   }
 }

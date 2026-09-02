@@ -20,7 +20,8 @@ export default function HomePage() {
           </h1>
           <p>
             HiCare Services Ltd. is a modern, efficient overseas recruiting agency in Bangladesh — connecting ethical
-            employers with skilled, semi-skilled, and unskilled manpower across the GCC, Malaysia, and Singapore.
+            employers with skilled, semi-skilled, and unskilled manpower across the Globe
+            {/*, Malaysia, and Singapore.*/}
           </p>
           <div className="hero-btns">
             <a className="btn-primary" href="/contact">

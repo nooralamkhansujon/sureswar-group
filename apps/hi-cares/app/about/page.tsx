@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { MessageCard } from "@/components/message-card";
 import { PageBanner } from "@/components/page-banner";
 import {
-  chairmanMessage,
   hicareContact,
   hicareLegal,
   mdMessage,
@@ -29,29 +28,12 @@ export default function AboutPage() {
       <section className="hicare-section message-section" aria-labelledby="leadership-heading">
         <span className="section-label">Leadership</span>
         <h2 id="leadership-heading" className="section-title">
-          Messages from our <span>leaders</span>
+          Message from our <span>leader</span>
         </h2>
         <p className="section-desc">
-          Ashraf Khan and S. N. Manzur Murshed (Mahbub) on HiCare&apos;s values, capability, and commitment to overseas
-          partners.
+          S. N. Manzur Murshed (Mahbub) on HiCare&apos;s values, capability, and commitment to overseas partners.
         </p>
         <div className="messages-grid">
-          <div id="message-chairman" className="message-column">
-            <h3 className="message-column-title">
-              Message from the <span>Chairman</span>
-            </h3>
-            <MessageCard
-              name={chairmanMessage.name}
-              title={chairmanMessage.title}
-              intro={chairmanMessage.intro}
-              body={chairmanMessage.body}
-              image={chairmanMessage.image}
-              imageAlt={chairmanMessage.imageAlt}
-              imageWidth={chairmanMessage.imageWidth}
-              imageHeight={chairmanMessage.imageHeight}
-              imageFit={chairmanMessage.imageFit}
-            />
-          </div>
           <div id="message-md" className="message-column">
             <h3 className="message-column-title">
               Message from the <span>Managing Director</span>
@@ -133,10 +115,8 @@ export default function AboutPage() {
         <p className="section-desc">Management structure as published in the company profile.</p>
         <div className="org-chart">
           <div className="org-row-line">
-            <div className="org-node node-chairman">{organogramStructure.top[0].label}</div>
-            <div className="org-h-connector" aria-hidden />
             <div className="org-down">
-              <div className="org-node node-md">{organogramStructure.top[1].label}</div>
+              <div className="org-node node-md">{organogramStructure.top.label}</div>
               <div className="org-connector" aria-hidden />
               <div className="org-node node-gm">{organogramStructure.gm.label}</div>
             </div>

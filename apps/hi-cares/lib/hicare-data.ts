@@ -21,22 +21,6 @@ export const hicareLegal = {
 export const visionStatement =
   "Our goal is to facilitate individuals in finding suitable careers in the highly competitive global market and providing services that empower our clients to succeed in the evolving landscape of employment";
 
-export const chairmanMessage = {
-  name: "Ashraf Khan",
-  title: "Chairman",
-  image: "/assets/chairman.jpg",
-  imageWidth: 640,
-  imageHeight: 800,
-  imageFit: "contain" as const,
-  imageAlt: "Ashraf Khan, Chairman of HiCare Services Ltd.",
-  intro:
-    "Dear esteemed partners and associates, greetings from HiCare Services Ltd. It brings me great pleasure to introduce HiCare Services Ltd., a trustworthy and dependable name in the field of overseas employment for manpower and human resources. Our company operates a highly efficient network throughout Bangladesh and is fully equipped to recruit personnel who meet the requirements of our esteemed overseas employers.",
-  body: [
-    "Bangladesh is home to a surplus of talented, hardworking individuals who are eager to export their skills and contribute to economies around the world. Our workforce is known for dedication, loyalty, and honesty — qualities that employers value in every sector.",
-    "HiCare Services Ltd. is equipped to provide skilled, semi-skilled, and unskilled manpower swiftly and professionally, and we invite potential clients to establish a long-term business relationship with us. We are committed to excellence, top-notch service, and a professional attitude as we work toward becoming a leading market player in the Middle East and other developed countries.",
-  ],
-};
-
 export const mdMessage = {
   name: "S. N. Manzur Murshed (Mahbub)",
   title: "Managing Director",
@@ -242,10 +226,7 @@ export const manpowerTable2: { institution: string; count: string; faculties: st
 ];
 
 export const organogramStructure = {
-  top: [
-    { label: "Chairman", variant: "chairman" as const },
-    { label: "Managing Director", variant: "md" as const },
-  ],
+  top: { label: "Managing Director", variant: "md" as const },
   gm: { label: "General Manager", variant: "gm" as const },
   managers: [
     "Manager HR",
