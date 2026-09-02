@@ -30,7 +30,6 @@ export default function PackagesPage() {
                 <p className="package-meta">
                   {pkg.location} · {pkg.duration}
                 </p>
-                <p className="package-price">{pkg.price}</p>
               </div>
             </article>
           ))}

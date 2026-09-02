@@ -15,8 +15,8 @@ export default function HajjUmrahPage() {
         <div className="section-grid section-grid--reverse">
           <div className="hajj-visual">
             <img
-              src="https://images.unsplash.com/photo-1591604129939-f1efa5568a62?auto=format&fit=crop&w=1200&q=80"
-              alt="Pilgrimage travel"
+              src="https://images.unsplash.com/photo-1572358899655-f63ece97bfa5?auto=format&fit=crop&w=1200&q=80"
+              alt="Masjid an-Nabawi (Madina Sharif), Madina"
               width={600}
               height={450}
               loading="lazy"
