@@ -43,7 +43,11 @@ export default function AboutPage() {
             </div>
             <div className="info-row">
               <span className="key">Group</span>
-              <span className="val">Sureswar Group</span>
+              <span className="val">
+                <a href="https://www.sureswargroup.com/" target="_blank" rel="noopener noreferrer">
+                  Sureswar Group
+                </a>
+              </span>
             </div>
             <div className="info-row">
               <span className="key">Focus</span>
@@ -101,7 +105,15 @@ export default function AboutPage() {
         <div className="sister-grid">
           {sisterConcerns.map((company) => (
             <article className="sister-card" key={company.name}>
-              <h3>{company.name}</h3>
+              <h3>
+                {"url" in company ? (
+                  <a href={company.url} target="_blank" rel="noopener noreferrer">
+                    {company.name}
+                  </a>
+                ) : (
+                  company.name
+                )}
+              </h3>
               <p>{company.description}</p>
             </article>
           ))}

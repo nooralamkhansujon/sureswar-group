@@ -25,16 +25,16 @@ export function InquiryForm() {
 
     try {
       await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        process.env.NEXT_PUBLIC_SURESWAR_GROUP_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_SURESWAR_GROUP_EMAILJS_TEMPLATE_ID!,
         {
-          to_email: process.env.NEXT_PUBLIC_CONTACT_EMAIL,
+          to_email: process.env.NEXT_PUBLIC_SURESWAR_GROUP_CONTACT_EMAIL,
           name: formData.get("name"),
           email: formData.get("email"),
           company: formData.get("company"),
           message: formData.get("message"),
         },
-        { publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY }
+        { publicKey: process.env.NEXT_PUBLIC_SURESWAR_GROUP_EMAILJS_PUBLIC_KEY }
       );
       form.reset();
       setSent(true);

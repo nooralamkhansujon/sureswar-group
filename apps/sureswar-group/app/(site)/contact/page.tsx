@@ -37,6 +37,10 @@ export default function ContactPage() {
 
         <ProseSection id="details" title="Phone / Email">
           <Typography variant="body1">
+            <Typography component="span" sx={{ fontWeight: 600, color: "text.primary" }}>Address:</Typography>{" "}
+            {contact.addressLines.join(", ")}
+          </Typography>
+          <Typography variant="body1">
             <Typography component="span" sx={{ fontWeight: 600, color: "text.primary" }}>Phone:</Typography>{" "}
             <MuiLink href={`tel:${contact.phoneTel}`} color="primary" underline="hover">
               {contact.phoneDisplay}

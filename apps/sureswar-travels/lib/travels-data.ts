@@ -1,13 +1,22 @@
 export const travelsContact = {
   addressLines: [
-    "House 12, Road 5, Dhanmondi",
-    "Dhaka 1205, Bangladesh",
+    "Bashati Condominium, House# 15, (Suite# C5)",
+    "Road # 17, Banani, Dhaka-1212",
+    "Bangladesh",
   ],
   phone: "+880 2-966-1234",
   cell: "+880 1711-000000",
   email: "info@sureswartravels.com",
   web: "https://www.sureswartravels.com",
+  whatsappMessage: "Hello, I would like to get in touch with Sureswar Travels.",
 } as const;
+
+export function getWhatsAppUrl(message: string = travelsContact.whatsappMessage): string {
+  const phone = travelsContact.cell.replace(/\D/g, "");
+  const base = `https://wa.me/${phone}`;
+  if (!message) return base;
+  return `${base}?text=${encodeURIComponent(message)}`;
+}
 
 export const heroContent = {
   badge: "Travels Agency of Bangladesh",
@@ -127,7 +136,7 @@ export const tourPackages = [
 ] as const;
 
 export const chairmanMessage = {
-  name: "Ashraf Khan",
+  name: "S. N. Manzur Murshed",
   title: "Chairman, Sureswar Group",
   intro:
     "For more than three decades, Sureswar Travels has stood for integrity, reliability, and service excellence in Bangladesh's travel industry.",
@@ -145,8 +154,16 @@ export const managementTeam = [
 ] as const;
 
 export const sisterConcerns = [
-  { name: "Sureswar Group", description: "Parent conglomerate — diversified business since 1993" },
-  { name: "HiCare Services Ltd.", description: "Government-approved overseas manpower recruitment" },
+  {
+    name: "Sureswar Group",
+    description: "Parent conglomerate — diversified business since 1993",
+    url: "https://www.sureswargroup.com/",
+  },
+  {
+    name: "HiCare Services Ltd.",
+    description: "Government-approved overseas manpower recruitment",
+    url: "https://www.hicare.com.bd",
+  },
   { name: "Sadi Corporation", description: "Contracting, procurement & supply solutions" },
   { name: "Holiday Express", description: "Curated tour packages & visa assistance" },
 ] as const;

@@ -3,6 +3,7 @@ import { Geist, Playfair_Display } from "next/font/google";
 
 import { SiteFooter } from "@/components/site-footer";
 import { SiteNavbar } from "@/components/site-navbar";
+import { FixedWhatsAppSocialLink } from "@/components/whatsapp-social-link";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -38,6 +39,7 @@ export default function RootLayout({
           Overseas Employment · BAIRA member
         </div>
         <SiteNavbar />
+        <FixedWhatsAppSocialLink />
         {children}
         <SiteFooter />
       </body>

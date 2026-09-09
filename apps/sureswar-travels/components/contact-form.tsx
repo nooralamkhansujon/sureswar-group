@@ -33,17 +33,17 @@ export function ContactForm() {
 
         try {
           await emailjs.send(
-            process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-            process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+            process.env.NEXT_PUBLIC_SURESWAR_TRAVELS_EMAILJS_SERVICE_ID!,
+            process.env.NEXT_PUBLIC_SURESWAR_TRAVELS_EMAILJS_TEMPLATE_ID!,
             {
-              to_email: process.env.NEXT_PUBLIC_CONTACT_EMAIL,
+              to_email: process.env.NEXT_PUBLIC_SURESWAR_TRAVELS_CONTACT_EMAIL,
               name: formData.get("name"),
               phone: formData.get("phone"),
               email: formData.get("email"),
               service: SERVICE_LABELS[service] ?? service,
               message: formData.get("message"),
             },
-            { publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY }
+            { publicKey: process.env.NEXT_PUBLIC_SURESWAR_TRAVELS_EMAILJS_PUBLIC_KEY }
           );
           form.reset();
           setSent(true);

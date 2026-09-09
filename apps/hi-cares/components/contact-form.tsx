@@ -32,17 +32,17 @@ export function ContactForm() {
 
         try {
           await emailjs.send(
-            process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-            process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+            process.env.NEXT_PUBLIC_HICARE_EMAILJS_SERVICE_ID!,
+            process.env.NEXT_PUBLIC_HICARE_EMAILJS_TEMPLATE_ID!,
             {
-              to_email: process.env.NEXT_PUBLIC_CONTACT_EMAIL,
+              to_email: process.env.NEXT_PUBLIC_HICARE_CONTACT_EMAIL,
               name: formData.get("name"),
               email: formData.get("email"),
               organization: formData.get("organization"),
               interest: INTEREST_LABELS[interest] ?? interest,
               message: formData.get("message"),
             },
-            { publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY }
+            { publicKey: process.env.NEXT_PUBLIC_HICARE_EMAILJS_PUBLIC_KEY }
           );
           form.reset();
           setSent(true);

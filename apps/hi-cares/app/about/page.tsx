@@ -31,7 +31,7 @@ export default function AboutPage() {
           Message from our <span>leader</span>
         </h2>
         <p className="section-desc">
-          S. N. Manzur Murshed (Mahbub) on HiCare&apos;s values, capability, and commitment to overseas partners.
+          S. N. Manzur Murshed on HiCare&apos;s values, capability, and commitment to overseas partners.
         </p>
         <div className="messages-grid">
           <div id="message-md" className="message-column">

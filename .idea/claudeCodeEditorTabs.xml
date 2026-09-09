@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ClaudeCodeEditorTabs">
+    <option name="activeSessionId" value="b89e1c29-8ab8-4f87-a537-86fc87a78819" />
+    <option name="openSessionIds">
+      <list>
+        <option value="ad4d5cca-7211-4f5c-9065-2e2d9cc396c3" />
+        <option value="ba6952e2-c136-4d18-a1b3-40029c15e79e" />
+        <option value="8ccbd720-1836-4aed-bfb5-9c5819022a6e" />
+        <option value="b89e1c29-8ab8-4f87-a537-86fc87a78819" />
+      </list>
+    </option>
+    <option name="sessionPaths">
+      <map>
+        <entry key="8ccbd720-1836-4aed-bfb5-9c5819022a6e" value="/sessions/dc942e3e-84cd-42d0-8421-c17456fa040b" />
+        <entry key="ad4d5cca-7211-4f5c-9065-2e2d9cc396c3" value="/sessions/83896bfc-fcc1-416d-b54b-b831f9d75b1f" />
+        <entry key="b89e1c29-8ab8-4f87-a537-86fc87a78819" value="/sessions/baaeff3d-13de-490f-a6ec-d3c323d9e537" />
+        <entry key="ba6952e2-c136-4d18-a1b3-40029c15e79e" value="/sessions/ddaad09a-3cb7-4c44-b47f-d20d1a0b0212" />
+      </map>
+    </option>
+    <option name="sessionTitles">
+      <map>
+        <entry key="8ccbd720-1836-4aed-bfb5-9c5819022a6e" value="@apps/hi-cares/ remove chairman portion and also c" />
+        <entry key="ad4d5cca-7211-4f5c-9065-2e2d9cc396c3" value="@apps/sureswar-travels/app/contact/page.tsx i want" />
+        <entry key="b89e1c29-8ab8-4f87-a537-86fc87a78819" value="add whatsapp chat message like i implement in sure" />
+        <entry key="ba6952e2-c136-4d18-a1b3-40029c15e79e" value="@apps/sureswar-group/ in tours page, remove price" />
+      </map>
+    </option>
+  </component>
+</project>

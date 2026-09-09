@@ -2,7 +2,7 @@
 
 export const hicareContact = {
   addressLines: [
-    "Boshoti Condominium House # 15, (Flat-C-5)",
+    "Bashati Condominium, House# 15, (Suite# C5)",
     "Road # 17, Banani, Dhaka-1212",
     "Bangladesh",
   ],
@@ -10,7 +10,15 @@ export const hicareContact = {
   cell: "+88 01712 020020",
   email: "hicareservicesltd22@gmail.com",
   web: "https://www.hicare.com.bd",
+  whatsappMessage: "Hello, I would like to get in touch with HiCare Services Ltd.",
 } as const;
+
+export function getWhatsAppUrl(message: string = hicareContact.whatsappMessage): string {
+  const phone = hicareContact.cell.replace(/\D/g, "");
+  const base = `https://wa.me/${phone}`;
+  if (!message) return base;
+  return `${base}?text=${encodeURIComponent(message)}`;
+}
 
 export const hicareLegal = {
   recruitingLicense: "RL-2234",
@@ -22,14 +30,14 @@ export const visionStatement =
   "Our goal is to facilitate individuals in finding suitable careers in the highly competitive global market and providing services that empower our clients to succeed in the evolving landscape of employment";
 
 export const mdMessage = {
-  name: "S. N. Manzur Murshed (Mahbub)",
+  name: "S. N. Manzur Murshed",
   title: "Managing Director",
   image: "/assets/managing-director.jpeg",
   imageWidth: 640,
   imageHeight: 800,
   imageFit: "contain" as const,
   imageObjectPosition: "center 18%",
-  imageAlt: "S. N. Manzur Murshed (Mahbub), Managing Director of HiCare Services Ltd.",
+  imageAlt: "S. N. Manzur Murshed, Managing Director of HiCare Services Ltd.",
   intro:
     "Dear valued partners and associates, greetings from HiCare Services Ltd. I am pleased to introduce our agency as a modern, efficient, and leading overseas recruiting agency in Bangladesh. Our unwavering commitment to high-quality, professional services has earned us reliability, trustworthiness, and global appreciation.",
   body: [
@@ -66,17 +74,18 @@ export const bangladeshBullets = [
 
 export const targetMarkets = [
   "Kingdom of Saudi Arabia",
-  "Malaysia",
-  "United Arab Emirates",
   "Kuwait",
+  "Malaysia",
   "Qatar",
   "Singapore",
+  "United Arab Emirates",
 ];
 
 export const servicesIntro = [
-  "HiCare Services Ltd. applies deep expertise in professional recruitment and an understanding of local and international manpower processes to deliver HR services and recruitment solutions. Our services are built on global competencies and an extensive database for international placements across industries.",
-  "We specialize in placing job seekers in the Kingdom of Saudi Arabia, Malaysia, United Arab Emirates, Kuwait, Qatar, and Singapore. We focus on finding quality talent from overseas, particularly from Bangladesh, a prime location for recruitment.",
-  "Our work includes assistance with overseas immigration, guidance on international work permit legislation, and immigration advice for prospective and current clients.",
+  "HiCare Services Ltd. applies deep expertise in professional recruitment and a strong understanding of local and international manpower processes to deliver comprehensive HR services and recruitment solutions. Our services are built on global competencies, industry knowledge, and an extensive talent database, enabling us to connect qualified candidates with suitable employment opportunities across international markets and industries.",
+  "We aim to develop a strong international recruitment network with a particular focus on *European Union countries, the wider European market, Asia, the Middle East, and other key destinations around the world*. Our approach is centered on identifying and preparing quality talent from Bangladesh for international employment opportunities, while building trusted relationships with employers and recruitment partners across global markets.",
+
+  "Our services also include support and guidance throughout the overseas employment process, including international recruitment, immigration procedures, work permit requirements, and applicable employment and immigration regulations. We are committed to expanding our international reach responsibly and establishing long-term partnerships with employers and organizations worldwide.",
 ];
 
 export const servicesDetailed = [

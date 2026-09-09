@@ -118,7 +118,9 @@ export function SiteFooter() {
               long-term partnerships.
             </p>
             <address className="mt-5 not-italic space-y-1.5 text-sm text-white/55">
-              <p>{contact.mapQuery}</p>
+              {contact.addressLines.map((line) => (
+                <p key={line}>{line}</p>
+              ))}
               <p>
                 <a
                   href={`tel:${contact.phoneTel}`}

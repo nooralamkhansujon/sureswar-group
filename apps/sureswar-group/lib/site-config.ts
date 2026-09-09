@@ -3,10 +3,15 @@ export const externalUrls = {
   sureswarTravels:
     process.env.NEXT_PUBLIC_SURESWAR_TRAVELS_URL ?? "https://www.sureswartravels.com",
   hiCareServices:
-    process.env.NEXT_PUBLIC_HICARE_SERVICES_URL ?? "https://example.com/hicare-services",
+    process.env.NEXT_PUBLIC_HICARE_SERVICES_URL ?? "https://www.hicare.com.bd",
 } as const;
 
 export const contact = {
+  addressLines: [
+    "Bashati Condominium, House# 15, (Suite# C5)",
+    "Road # 17, Banani, Dhaka-1212",
+    "Bangladesh",
+  ],
   phoneDisplay: "+880 1711-000000",
   phoneTel: "+8801711000000",
   email: "info@sureswargroup.com",
@@ -14,7 +19,7 @@ export const contact = {
   /** Pre-filled message when opening WhatsApp chat. */
   whatsappMessage: "Hello, I would like to get in touch with Sureswar Group.",
   /** Used for the embedded map search; update to your registered address. */
-  mapQuery: "Dhaka, Bangladesh",
+  mapQuery: "Bashati Condominium, Road 17, Banani, Dhaka 1212, Bangladesh",
 } as const;
 
 /** Opens WhatsApp Web or the mobile app for the configured contact number. */
