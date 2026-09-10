@@ -10,11 +10,12 @@ export const hicareContact = {
   cell: "+88 01712 020020",
   email: "hicareservicesltd22@gmail.com",
   web: "https://www.hicare.com.bd",
+  whatsapp: "+880 1897-288730",
   whatsappMessage: "Hello, I would like to get in touch with HiCare Services Ltd.",
 } as const;
 
 export function getWhatsAppUrl(message: string = hicareContact.whatsappMessage): string {
-  const phone = hicareContact.cell.replace(/\D/g, "");
+  const phone = hicareContact.whatsapp.replace(/\D/g, "");
   const base = `https://wa.me/${phone}`;
   if (!message) return base;
   return `${base}?text=${encodeURIComponent(message)}`;
